@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>webpack成神（4） | Y Lei&#39;S Blog</title>
+    <meta name="description" content="webpack成神">
+    <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="webpack">
+    <link rel="preload" href="/assets/css/0.styles.ad66585c.css" as="style"><link rel="preload" href="/assets/js/app.565ad12a.js" as="script"><link rel="preload" href="/assets/js/4.ed939ccf.js" as="script"><link rel="preload" href="/assets/js/1.0b802b94.js" as="script"><link rel="preload" href="/assets/js/25.3b08ed65.js" as="script"><link rel="prefetch" href="/assets/js/10.8cce62b7.js"><link rel="prefetch" href="/assets/js/11.130790c6.js"><link rel="prefetch" href="/assets/js/12.3d9f9702.js"><link rel="prefetch" href="/assets/js/13.c7d9d8f6.js"><link rel="prefetch" href="/assets/js/14.0456630e.js"><link rel="prefetch" href="/assets/js/15.e33dd41d.js"><link rel="prefetch" href="/assets/js/16.382c9bcd.js"><link rel="prefetch" href="/assets/js/17.18e1a90e.js"><link rel="prefetch" href="/assets/js/18.f5d5c127.js"><link rel="prefetch" href="/assets/js/19.55621491.js"><link rel="prefetch" href="/assets/js/20.f4ab203f.js"><link rel="prefetch" href="/assets/js/21.b3f1dd79.js"><link rel="prefetch" href="/assets/js/22.a4769bbd.js"><link rel="prefetch" href="/assets/js/23.a3108ef1.js"><link rel="prefetch" href="/assets/js/24.455c5906.js"><link rel="prefetch" href="/assets/js/26.98348e29.js"><link rel="prefetch" href="/assets/js/27.50ded5ec.js"><link rel="prefetch" href="/assets/js/28.b5ff8778.js"><link rel="prefetch" href="/assets/js/29.274f94db.js"><link rel="prefetch" href="/assets/js/30.c9db3a1b.js"><link rel="prefetch" href="/assets/js/31.603f2f81.js"><link rel="prefetch" href="/assets/js/32.b2840a37.js"><link rel="prefetch" href="/assets/js/33.fd1960f2.js"><link rel="prefetch" href="/assets/js/34.5734f5e1.js"><link rel="prefetch" href="/assets/js/35.537cc99c.js"><link rel="prefetch" href="/assets/js/36.9a7531ad.js"><link rel="prefetch" href="/assets/js/37.a3aece7e.js"><link rel="prefetch" href="/assets/js/38.b148e348.js"><link rel="prefetch" href="/assets/js/39.b545f40f.js"><link rel="prefetch" href="/assets/js/40.fb5f0a0e.js"><link rel="prefetch" href="/assets/js/41.15aa988a.js"><link rel="prefetch" href="/assets/js/42.41575e65.js"><link rel="prefetch" href="/assets/js/43.94c84e7c.js"><link rel="prefetch" href="/assets/js/44.584661fb.js"><link rel="prefetch" href="/assets/js/5.61cadc21.js"><link rel="prefetch" href="/assets/js/6.51c4d940.js"><link rel="prefetch" href="/assets/js/7.b5260bec.js"><link rel="prefetch" href="/assets/js/8.61073b5c.js"><link rel="prefetch" href="/assets/js/9.4a046adc.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.2553b2f0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ad66585c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container"><div><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/avatar-300px.png" alt="Y Lei'S Blog" class="logo"> <span class="site-name">Y Lei'S Blog</span></a> <div class="links"><div class="color-picker"><a href="#" class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="theme-options"><!----> <div class="dark-theme-options toggle-option"><label for="dark-theme-toggle">Enable Dark Theme?</label> <input id="dark-theme-toggle" type="checkbox" checked="checked"></div></div></div></div> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><a href="/category/Front-End.html" class="nav-link"><i class="iconfont reco-blog"></i>
+  Blog
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Library
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/views/other/My favourite.html" class="nav-link"><i class="iconfont iconfontMy icon-tubiaoshezhixihuandeinhuo"></i>
+  My Favourite
+</a></li><li class="dropdown-item"><!----> <a href="/views/other/Interview question.html" class="nav-link"><i class="iconfont iconfontMy icon---copy"></i>
+  Interview Question
+</a></li><li class="dropdown-item"><!----> <a href="https://yu-lei.gitbook.io/notes/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-book"></i>
+  Notes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><a href="/Tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/views/other/guide.html" class="nav-link"><i class="iconfont reco-account"></i>
+  My CV
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/rainyulei" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.linkedin.com/in/yu-lei-42827a17b/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-linkedin"></i>
+  linkedin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.zhihu.com/people/ha-ha-ha-he-he-he-39/activities" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-zhihu"></i>
+  Zhihu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><a href="/category/Front-End.html" class="nav-link"><i class="iconfont reco-blog"></i>
+  Blog
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Library
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/views/other/My favourite.html" class="nav-link"><i class="iconfont iconfontMy icon-tubiaoshezhixihuandeinhuo"></i>
+  My Favourite
+</a></li><li class="dropdown-item"><!----> <a href="/views/other/Interview question.html" class="nav-link"><i class="iconfont iconfontMy icon---copy"></i>
+  Interview Question
+</a></li><li class="dropdown-item"><!----> <a href="https://yu-lei.gitbook.io/notes/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-book"></i>
+  Notes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><a href="/Tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/views/other/guide.html" class="nav-link"><i class="iconfont reco-account"></i>
+  My CV
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/rainyulei" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.linkedin.com/in/yu-lei-42827a17b/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-linkedin"></i>
+  linkedin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.zhihu.com/people/ha-ha-ha-he-he-he-39/activities" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-zhihu"></i>
+  Zhihu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>webpack成神（4）</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#webpack-的底层原理" class="sidebar-link">webpack 的底层原理</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#tapable-的注册和执行有同步和异步注册" class="sidebar-link">tapable 的注册和执行有同步和异步注册</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#异步事件钩子，也就是异步的订阅发布模式-asyncparallelhook-并行" class="sidebar-link">异步事件钩子，也就是异步的订阅发布模式 AsyncParallelHook 并行</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#tapasync-注册-callasync-执行" class="sidebar-link">tapAsync 注册 callAsync 执行</a></li><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#实现原理-使用计数器的原理" class="sidebar-link">实现原理 使用计数器的原理</a></li><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#tappromise-模式下的并行钩子-tappromise-注册-promise-执行" class="sidebar-link">tappromise 模式下的并行钩子 tapPromise 注册 promise 执行</a></li><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#promise-注册的实现原理" class="sidebar-link">promise 注册的实现原理</a></li></ul></li><li><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#异步事件带保险的钩子，-asyncparallelbailhook-并行" class="sidebar-link">异步事件带保险的钩子， AsyncParallelBailHook 并行</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#promise-版本的使用" class="sidebar-link">promise 版本的使用</a></li></ul></li><li><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#异步串行，-asyncserieshook-钩子" class="sidebar-link">异步串行， AsyncSeriesHook 钩子</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#使用" class="sidebar-link">使用</a></li><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#原理" class="sidebar-link">原理</a></li><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#promise-版本-使用" class="sidebar-link">promise 版本 使用</a></li><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#promise-版本实现" class="sidebar-link">promise 版本实现</a></li></ul></li><li><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#异步串行-瀑布流钩子函数" class="sidebar-link">异步串行 瀑布流钩子函数</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#async-实现" class="sidebar-link">async 实现</a></li><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#async-实现-2" class="sidebar-link">async 实现</a></li><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-04-11-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E5%9B%9B%EF%BC%89--webpack%E5%8E%9F%E7%90%86.html#基于-promise-的实现" class="sidebar-link">基于 promise 的实现</a></li></ul></li></ul></section></li></ul> </aside> <div><main class="page reco-hide"> <div class="page-title"><h1>webpack成神（4）</h1> <hr> <div data-v-b53d65a4><i class="iconfont reco-account" data-v-b53d65a4><span data-v-b53d65a4>Yu Lei</span></i> <i class="iconfont reco-date" data-v-b53d65a4><span data-v-b53d65a4>2019-4-11</span></i> <!----> <i class="iconfont reco-tag tags" data-v-b53d65a4><span class="tag-item" data-v-b53d65a4>
+      webpack
+    </span></i></div></div> <div class="content__default"><h1 id="webpack-成神"><a href="#webpack-成神" aria-hidden="true" class="header-anchor">#</a> webpack 成神</h1> <h2 id="webpack-的底层原理"><a href="#webpack-的底层原理" aria-hidden="true" class="header-anchor">#</a> webpack 的底层原理</h2> <p>webpack 本质上是一种事件流机制，他就是将各个插件串联起来。实现这一机制的就是 tapable tapable 类似于 nodejs 中的 events 库，核心原理也是发布订阅模式</p> <p>webpack 编译 模块 compiler 引用了 tapable</p> <h2 id="tapable-的注册和执行有同步和异步注册"><a href="#tapable-的注册和执行有同步和异步注册" aria-hidden="true" class="header-anchor">#</a> tapable 的注册和执行有同步和异步注册</h2> <pre><code>tap 同步注册
+tapAsync  异步注册 参数（‘name’，function（参数，判断回调）{  }）
+tappromise 注册成promise 模式 返回需要一个promise  使用  promise（）方法 来触发
+taps 传入一个数组 同时注册多个
+call 同步执行
+callAsync  异步执行 （‘参数’，回调函数）
+</code></pre> <h2 id="异步事件钩子，也就是异步的订阅发布模式-asyncparallelhook-并行"><a href="#异步事件钩子，也就是异步的订阅发布模式-asyncparallelhook-并行" aria-hidden="true" class="header-anchor">#</a> 异步事件钩子，也就是异步的订阅发布模式 AsyncParallelHook 并行</h2> <h3 id="tapasync-注册-callasync-执行"><a href="#tapasync-注册-callasync-执行" aria-hidden="true" class="header-anchor">#</a> tapAsync 注册 callAsync 执行</h3> <pre><code>```javascript
+  const {
+    AsyncParallelHook
+  } = require('tapable')
+
+  class Lession {
+    constructor () {
+      this.hooks = {
+        arch: new AsyncParallelHook(['name'])
+      }
+    }
+    tap () {
+      this.hooks.arch.tapAsync('node', (name, cb) =&gt; {
+        setTimeout(() =&gt; {
+          console.log(name, 'node')
+          cb()
+        }, 2000)
+      })
+
+      this.hooks.arch.tapAsync('react', (name, cb) =&gt; {
+        setTimeout(() =&gt; {
+          console.log(name, 'react')
+          cb()
+        }, 2000)
+      })
+    }
+    call () {
+      this.hooks.arch.callAsync('hahaha', () =&gt; {
+        console.log('end')
+      })
+    }
+  }
+  let l = new Lession()
+  l.tap()
+  l.call()
+  //等待2秒后  输出
+  //hahaha node
+  //hahaha react
+  //end
+```
+</code></pre> <h3 id="实现原理-使用计数器的原理"><a href="#实现原理-使用计数器的原理" aria-hidden="true" class="header-anchor">#</a> 实现原理 使用计数器的原理</h3> <pre><code>  ```javascript
+    class AsyncParallelHook {
+      constructor (args) {
+        this.takes = []
+      }
+      tapAsync (name, task) {
+        // 同步注册
+        this.takes.push(task)
+      }
+      callAsync (...args) {
+        //拿出最终的函数
+        const finalCallback = args.pop()
+        let index = 0
+
+        let done = (params) =&gt; {//计数器  每次执行函数都会增加数量
+          index++
+          if (index === this.takes.length) {//当 次数与任务链相同的时候  执行最终函数
+            finalCallback()
+          }
+        }
+        this.takes.forEach(task =&gt; {//保证并行
+          task(...args, done)
+        })
+      }
+    }
+
+    class Lession {
+      constructor () {
+        this.hooks = {
+          arch: new AsyncParallelHook(['name'])
+        }
+      }
+      tap () {
+        this.hooks.arch.tapAsync('node', (name, cb) =&gt; {
+          setTimeout(() =&gt; {
+            console.log(name, 'node')
+            cb()
+          }, 2000)
+        })
+
+        this.hooks.arch.tapAsync('react', (name, cb) =&gt; {
+          setTimeout(() =&gt; {
+            console.log(name, 'react')
+            cb()
+          }, 2000)
+        })
+      }
+      call () {
+        this.hooks.arch.callAsync('hahaha', () =&gt; {
+          console.log('end')
+        })
+      }
+    }
+    let l = new Lession()
+    l.tap()
+    l.call()
+  ```
+</code></pre> <h3 id="tappromise-模式下的并行钩子-tappromise-注册-promise-执行"><a href="#tappromise-模式下的并行钩子-tappromise-注册-promise-执行" aria-hidden="true" class="header-anchor">#</a> tappromise 模式下的并行钩子 tapPromise 注册 promise 执行</h3> <pre><code>  ```javascript
+  const {
+    AsyncParallelHook
+  } = require('tapable')
+
+  class Lession {
+    constructor () {
+      this.hooks = {
+        arch: new AsyncParallelHook(['name'])
+      }
+    }
+    tap () {
+      this.hooks.arch.tapPromise('node', (name) =&gt; { //tapPromise 注册
+        return new Promise((resolve, reject) =&gt; { //返回一个promise
+          setTimeout(() =&gt; {
+            console.log(name, 'node')
+            resolve() //成功调用这个函数  并且可以把成功的结果返回出去
+          }, 1000)
+        })
+      })
+
+      this.hooks.arch.tapPromise('react', (name) =&gt; {
+        return new Promise((resolve, reject) =&gt; {
+          setTimeout(() =&gt; {
+            console.log(name, 'react')
+            resolve()
+          }, 1000)
+        })
+      })
+    }
+    call () {
+      this.hooks.arch.promise('hahaha').then(() =&gt; {//使用promise（）方法触发注册的钩子函数  并且 有.then 执行最终的回调函数
+        console.log('end')
+      })
+    }
+  }
+  let l = new Lession()
+  l.tap()
+  l.call()
+  //内部的实现机理其实是一个promise.all()
+  ```
+</code></pre> <h3 id="promise-注册的实现原理"><a href="#promise-注册的实现原理" aria-hidden="true" class="header-anchor">#</a> promise 注册的实现原理</h3> <pre><code>  ```javascript
+  class AsyncParallelHook {
+    constructor(args) {
+      this.takes = []
+    }
+    tapPromise(name, task) {
+      // 同步注册
+      this.takes.push(task) //把任务推进队列
+    }
+    promise(...args) {
+      //把任务队列中的任务全部取出 并且传入参数  构建一个新的 promise  队列 ，因为在此时 primise 没有then  触发  所有promise  都处于pending 状态
+      let newtakes = this.takes.map(task =&gt; task(...args))
+      //[ Promise { &lt;pending&gt; }, Promise { &lt;pending&gt; } ] '===='
+      console.log(newtakes, '====')
+      return Promise.all(newtakes) //执行异步队列
+    }
+  }
+
+  class Lession {
+    constructor() {
+      this.hooks = {
+        arch: new AsyncParallelHook(['name'])
+      }
+    }
+    tap() {
+      this.hooks.arch.tapPromise('node', name =&gt; {
+        return new Promise((resolve, reject) =&gt; {
+          setTimeout(() =&gt; {
+            console.log(name, 'node')
+            resolve()
+          }, 1000)
+        })
+      })
+
+      this.hooks.arch.tapPromise('react', name =&gt; {
+        return new Promise((resolve, reject) =&gt; {
+          setTimeout(() =&gt; {
+            console.log(name, 'react')
+            resolve()
+          }, 1000)
+        })
+      })
+    }
+    call() {
+      this.hooks.arch.promise('hahaha').then(() =&gt; {//获取异步队列执行结果之后执行回调函数
+        console.log('end')
+      })
+    }
+  }
+  let l = new Lession()
+  l.tap()
+  l.call()
+  ```
+</code></pre> <h2 id="异步事件带保险的钩子，-asyncparallelbailhook-并行"><a href="#异步事件带保险的钩子，-asyncparallelbailhook-并行" aria-hidden="true" class="header-anchor">#</a> 异步事件带保险的钩子， AsyncParallelBailHook 并行</h2> <h3 id="promise-版本的使用"><a href="#promise-版本的使用" aria-hidden="true" class="header-anchor">#</a> promise 版本的使用</h3> <pre><code>```javascript
+const { AsyncParallelBailHook } = require('tapable')
+
+class Lession {
+  constructor() {
+    this.hooks = {
+      arch: new AsyncParallelBailHook(['name'])
+    }
+  }
+  tap() {
+    this.hooks.arch.tapPromise('node', name =&gt; {
+      return new Promise((resolve, reject) =&gt; {
+        setTimeout(() =&gt; {
+          console.log(name, 'node')
+          resolve('node')
+        }, 1000)
+      })
+    })
+
+    this.hooks.arch.tapPromise('react', name =&gt; {
+      return new Promise((resolve, reject) =&gt; {
+        setTimeout(() =&gt; {
+          console.log(name, 'react')
+          reject()
+        }, 1000)
+      })
+    })
+  }
+  call() {
+    this.hooks.arch
+      .promise('hahaha')
+      .then(data =&gt; {
+        console.log(data, 'data====')
+        console.log('end')
+      })
+      .catch(e =&gt; {
+        console.log(e)
+      })
+  }
+}
+let l = new Lession()
+l.tap()
+l.call()
+```
+</code></pre> <h2 id="异步串行，-asyncserieshook-钩子"><a href="#异步串行，-asyncserieshook-钩子" aria-hidden="true" class="header-anchor">#</a> 异步串行， AsyncSeriesHook 钩子</h2> <p>一个执行完成再执行下一个</p> <h3 id="使用"><a href="#使用" aria-hidden="true" class="header-anchor">#</a> 使用</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> AsyncSeriesHook <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'tapable'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Lession</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks <span class="token operator">=</span> <span class="token punctuation">{</span>
+      arch<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">AsyncSeriesHook</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">tap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">tapAsync</span><span class="token punctuation">(</span><span class="token string">'node'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">'node'</span><span class="token punctuation">)</span>
+        <span class="token function">cb</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">tapAsync</span><span class="token punctuation">(</span><span class="token string">'react'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">'react'</span><span class="token punctuation">)</span>
+        <span class="token function">cb</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">callAsync</span><span class="token punctuation">(</span><span class="token string">'hahaha'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> l <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Lession</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+l<span class="token punctuation">.</span><span class="token function">tap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">l</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">//等一秒  然后执行第一个</span>
+<span class="token comment">//等一秒  执行第二个</span>
+<span class="token comment">//执行最后的回调</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div><h3 id="原理"><a href="#原理" aria-hidden="true" class="header-anchor">#</a> 原理</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">AsyncSeriesHook</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>takes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">tapAsync</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> task</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 同步注册</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>takes<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">callAsync</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> finalCallback <span class="token operator">=</span> args<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">let</span> <span class="token function-variable function">next</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token comment">//这个是一个异步的迭代函数  每次需要执行的异步函数 放在迭代函数内部执行</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>takes<span class="token punctuation">.</span>length <span class="token operator">===</span> index<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">finalCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//最终需要执行 回调函数</span>
+      <span class="token keyword">let</span> task <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>task<span class="token punctuation">[</span>index<span class="token operator">++</span><span class="token punctuation">]</span>
+      <span class="token function">task</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token comment">//执行的异步函数</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//初始启动</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Lession</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks <span class="token operator">=</span> <span class="token punctuation">{</span>
+      arch<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">AsyncSeriesHook</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">tap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">tapAsync</span><span class="token punctuation">(</span><span class="token string">'node'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">'node'</span><span class="token punctuation">)</span>
+        <span class="token function">cb</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">tapAsync</span><span class="token punctuation">(</span><span class="token string">'react'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">'node'</span><span class="token punctuation">)</span>
+        <span class="token function">cb</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">callAsync</span><span class="token punctuation">(</span><span class="token string">'hahah'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> l <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Lession</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+l<span class="token punctuation">.</span><span class="token function">tap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">l</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br></div></div><h3 id="promise-版本-使用"><a href="#promise-版本-使用" aria-hidden="true" class="header-anchor">#</a> promise 版本 使用</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> AsyncSeriesHook <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'tapable'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Lession</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks <span class="token operator">=</span> <span class="token punctuation">{</span>
+      arch<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">AsyncSeriesHook</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">tap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">tapPromise</span><span class="token punctuation">(</span><span class="token string">'node'</span><span class="token punctuation">,</span> <span class="token parameter">name</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">'node'</span><span class="token punctuation">)</span>
+          <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">tapPromise</span><span class="token punctuation">(</span><span class="token string">'react'</span><span class="token punctuation">,</span> <span class="token parameter">name</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">'react'</span><span class="token punctuation">)</span>
+          <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">promise</span><span class="token punctuation">(</span><span class="token string">'hahaha'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> l <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Lession</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+l<span class="token punctuation">.</span><span class="token function">tap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">l</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div><h3 id="promise-版本实现"><a href="#promise-版本实现" aria-hidden="true" class="header-anchor">#</a> promise 版本实现</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">AsyncSeriesHook</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>takes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">tapPromise</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> task</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 同步注册</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>takes<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">promise</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> <span class="token punctuation">[</span>first<span class="token punctuation">,</span> <span class="token operator">...</span>others<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>takes <span class="token comment">//解构 promise 数组</span>
+    <span class="token comment">//最终返回 一个promise  利用最终的。then  执行</span>
+    <span class="token keyword">return</span> others<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">p<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token comment">//利用数组的收敛</span>
+      <span class="token keyword">return</span> p<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">n</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//每次执行当前的promise  并且把下一个要执行的装置参数 并且反回出去</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token function">first</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//传入第一个要执行的函数</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Lession</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks <span class="token operator">=</span> <span class="token punctuation">{</span>
+      arch<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">AsyncSeriesHook</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">tap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">tapPromise</span><span class="token punctuation">(</span><span class="token string">'node'</span><span class="token punctuation">,</span> <span class="token parameter">name</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">'node'</span><span class="token punctuation">)</span>
+          <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">tapPromise</span><span class="token punctuation">(</span><span class="token string">'react'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">'react'</span><span class="token punctuation">)</span>
+          <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">promise</span><span class="token punctuation">(</span><span class="token string">'hahah'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> l <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Lession</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+l<span class="token punctuation">.</span><span class="token function">tap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">l</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br></div></div><h2 id="异步串行-瀑布流钩子函数"><a href="#异步串行-瀑布流钩子函数" aria-hidden="true" class="header-anchor">#</a> 异步串行 瀑布流钩子函数</h2> <h3 id="async-实现"><a href="#async-实现" aria-hidden="true" class="header-anchor">#</a> async 实现</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> AsyncSeriesWaterfallHook <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'tapable'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Lession</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks <span class="token operator">=</span> <span class="token punctuation">{</span>
+      arch<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">AsyncSeriesWaterfallHook</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">tap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">tapAsync</span><span class="token punctuation">(</span><span class="token string">'node'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">'node'</span><span class="token punctuation">)</span>
+        <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token string">'第一个回调传递给第二个的结果'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">tapAsync</span><span class="token punctuation">(</span><span class="token string">'react'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">'react'</span><span class="token punctuation">)</span>
+        <span class="token function">cb</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">callAsync</span><span class="token punctuation">(</span><span class="token string">'hahaha'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> l <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Lession</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+l<span class="token punctuation">.</span><span class="token function">tap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">l</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><p>打印
+hahaha node
+第一个回调传递给第二个的结果 react
+end</p> <p>如果 中间有一个 <code>cb('error')</code> 那么 会跳过钩子函数直接执行最后的回调函数</p> <h3 id="async-实现-2"><a href="#async-实现-2" aria-hidden="true" class="header-anchor">#</a> async 实现</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code> <span class="token function">callAsync</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> finalFun <span class="token operator">=</span> args<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">let</span> <span class="token function-variable function">next</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>err <span class="token operator">===</span> <span class="token string">'error'</span><span class="token punctuation">)</span> <span class="token function">finalFun</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">let</span> take <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>takes<span class="token punctuation">[</span>index<span class="token punctuation">]</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>take<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">finalFun</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">take</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">,</span> next<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">take</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> next<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      index<span class="token operator">++</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h3 id="基于-promise-的实现"><a href="#基于-promise-的实现" aria-hidden="true" class="header-anchor">#</a> 基于 promise 的实现</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">AsyncSeriesWaterfallHook</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>takes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">tapPromise</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> task</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 同步注册</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>takes<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">promise</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> <span class="token punctuation">[</span>first<span class="token punctuation">,</span> <span class="token operator">...</span>others<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>takes
+    <span class="token keyword">return</span> others<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">p<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> p<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">r</span> <span class="token operator">=&gt;</span> <span class="token function">n</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token function">first</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Lession</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks <span class="token operator">=</span> <span class="token punctuation">{</span>
+      arch<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">AsyncSeriesWaterfallHook</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">tap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">tapPromise</span><span class="token punctuation">(</span><span class="token string">'node'</span><span class="token punctuation">,</span> <span class="token parameter">name</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">'node'</span><span class="token punctuation">)</span>
+          <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'第一个传递给第二个'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">tapPromise</span><span class="token punctuation">(</span><span class="token string">'react'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">'react'</span><span class="token punctuation">)</span>
+          <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'第二个传递给第三个'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>arch<span class="token punctuation">.</span><span class="token function">promise</span><span class="token punctuation">(</span><span class="token string">'hahah'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">r</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> l <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Lession</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+l<span class="token punctuation">.</span><span class="token function">tap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">l</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br></div></div><p>打印</p> <p>hahah node
+第一个传递给第二个 react
+第二个传递给第三个
+end</p></div> <!----> <footer class="page-edit"><!----> <!----></footer> <!----> </main> <div class="valine-wrapper" data-v-5029e45b><div id="valine" data-v-5029e45b></div></div></div> <div class="back-to-ceiling" style="right:1rem;bottom:3rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;background-color:rgba(231, 234, 241,.5);display:none;" data-v-d0bfeaa4 data-v-d0bfeaa4><i class="iconfont reco-up" data-v-d0bfeaa4></i></div></div></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.565ad12a.js" defer></script><script src="/assets/js/4.ed939ccf.js" defer></script><script src="/assets/js/1.0b802b94.js" defer></script><script src="/assets/js/25.3b08ed65.js" defer></script>
+  </body>
+</html>

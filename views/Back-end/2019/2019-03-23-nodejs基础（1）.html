@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>nodejs基础（1） | Y Lei&#39;S Blog</title>
+    <meta name="description" content="nodejs基础">
+    <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="nodejs">
+    <link rel="preload" href="/assets/css/0.styles.ad66585c.css" as="style"><link rel="preload" href="/assets/js/app.565ad12a.js" as="script"><link rel="preload" href="/assets/js/4.ed939ccf.js" as="script"><link rel="preload" href="/assets/js/1.0b802b94.js" as="script"><link rel="preload" href="/assets/js/13.c7d9d8f6.js" as="script"><link rel="prefetch" href="/assets/js/10.8cce62b7.js"><link rel="prefetch" href="/assets/js/11.130790c6.js"><link rel="prefetch" href="/assets/js/12.3d9f9702.js"><link rel="prefetch" href="/assets/js/14.0456630e.js"><link rel="prefetch" href="/assets/js/15.e33dd41d.js"><link rel="prefetch" href="/assets/js/16.382c9bcd.js"><link rel="prefetch" href="/assets/js/17.18e1a90e.js"><link rel="prefetch" href="/assets/js/18.f5d5c127.js"><link rel="prefetch" href="/assets/js/19.55621491.js"><link rel="prefetch" href="/assets/js/20.f4ab203f.js"><link rel="prefetch" href="/assets/js/21.b3f1dd79.js"><link rel="prefetch" href="/assets/js/22.a4769bbd.js"><link rel="prefetch" href="/assets/js/23.a3108ef1.js"><link rel="prefetch" href="/assets/js/24.455c5906.js"><link rel="prefetch" href="/assets/js/25.3b08ed65.js"><link rel="prefetch" href="/assets/js/26.98348e29.js"><link rel="prefetch" href="/assets/js/27.50ded5ec.js"><link rel="prefetch" href="/assets/js/28.b5ff8778.js"><link rel="prefetch" href="/assets/js/29.274f94db.js"><link rel="prefetch" href="/assets/js/30.c9db3a1b.js"><link rel="prefetch" href="/assets/js/31.603f2f81.js"><link rel="prefetch" href="/assets/js/32.b2840a37.js"><link rel="prefetch" href="/assets/js/33.fd1960f2.js"><link rel="prefetch" href="/assets/js/34.5734f5e1.js"><link rel="prefetch" href="/assets/js/35.537cc99c.js"><link rel="prefetch" href="/assets/js/36.9a7531ad.js"><link rel="prefetch" href="/assets/js/37.a3aece7e.js"><link rel="prefetch" href="/assets/js/38.b148e348.js"><link rel="prefetch" href="/assets/js/39.b545f40f.js"><link rel="prefetch" href="/assets/js/40.fb5f0a0e.js"><link rel="prefetch" href="/assets/js/41.15aa988a.js"><link rel="prefetch" href="/assets/js/42.41575e65.js"><link rel="prefetch" href="/assets/js/43.94c84e7c.js"><link rel="prefetch" href="/assets/js/44.584661fb.js"><link rel="prefetch" href="/assets/js/5.61cadc21.js"><link rel="prefetch" href="/assets/js/6.51c4d940.js"><link rel="prefetch" href="/assets/js/7.b5260bec.js"><link rel="prefetch" href="/assets/js/8.61073b5c.js"><link rel="prefetch" href="/assets/js/9.4a046adc.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.2553b2f0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ad66585c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container"><div><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/avatar-300px.png" alt="Y Lei'S Blog" class="logo"> <span class="site-name">Y Lei'S Blog</span></a> <div class="links"><div class="color-picker"><a href="#" class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="theme-options"><!----> <div class="dark-theme-options toggle-option"><label for="dark-theme-toggle">Enable Dark Theme?</label> <input id="dark-theme-toggle" type="checkbox" checked="checked"></div></div></div></div> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><a href="/category/Front-End.html" class="nav-link"><i class="iconfont reco-blog"></i>
+  Blog
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Library
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/views/other/My favourite.html" class="nav-link"><i class="iconfont iconfontMy icon-tubiaoshezhixihuandeinhuo"></i>
+  My Favourite
+</a></li><li class="dropdown-item"><!----> <a href="/views/other/Interview question.html" class="nav-link"><i class="iconfont iconfontMy icon---copy"></i>
+  Interview Question
+</a></li><li class="dropdown-item"><!----> <a href="https://yu-lei.gitbook.io/notes/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-book"></i>
+  Notes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><a href="/Tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/views/other/guide.html" class="nav-link"><i class="iconfont reco-account"></i>
+  My CV
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/rainyulei" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.linkedin.com/in/yu-lei-42827a17b/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-linkedin"></i>
+  linkedin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.zhihu.com/people/ha-ha-ha-he-he-he-39/activities" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-zhihu"></i>
+  Zhihu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><a href="/category/Front-End.html" class="nav-link"><i class="iconfont reco-blog"></i>
+  Blog
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Library
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/views/other/My favourite.html" class="nav-link"><i class="iconfont iconfontMy icon-tubiaoshezhixihuandeinhuo"></i>
+  My Favourite
+</a></li><li class="dropdown-item"><!----> <a href="/views/other/Interview question.html" class="nav-link"><i class="iconfont iconfontMy icon---copy"></i>
+  Interview Question
+</a></li><li class="dropdown-item"><!----> <a href="https://yu-lei.gitbook.io/notes/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-book"></i>
+  Notes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><a href="/Tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/views/other/guide.html" class="nav-link"><i class="iconfont reco-account"></i>
+  My CV
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/rainyulei" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.linkedin.com/in/yu-lei-42827a17b/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-linkedin"></i>
+  linkedin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.zhihu.com/people/ha-ha-ha-he-he-he-39/activities" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-zhihu"></i>
+  Zhihu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>nodejs基础（1）</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/views/Back-end/2019/2019-03-23-nodejs%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89.html#基础全局变量" class="sidebar-link">基础全局变量</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/Back-end/2019/2019-03-23-nodejs%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89.html#事件循环-eventloop" class="sidebar-link">事件循环 EventLoop</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-03-23-nodejs%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89.html#宏任务与微任务" class="sidebar-link">宏任务与微任务</a></li></ul></li><li><a href="/views/Back-end/2019/2019-03-23-nodejs%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89.html#模块化系统" class="sidebar-link">模块化系统</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-03-23-nodejs%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89.html#定义模块" class="sidebar-link">定义模块</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-03-23-nodejs%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89.html#导入模块" class="sidebar-link">导入模块</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-03-23-nodejs%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89.html#模块导出" class="sidebar-link">模块导出</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-03-23-nodejs%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89.html#模块化的分类" class="sidebar-link">模块化的分类</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-03-23-nodejs%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89.html#es6-的模块化" class="sidebar-link">es6 的模块化</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-03-23-nodejs%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89.html#stream-流" class="sidebar-link">Stream 流</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-03-23-nodejs%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89.html#buffer" class="sidebar-link">Buffer</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-03-23-nodejs%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89.html#filesystem" class="sidebar-link">filesystem</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-03-23-nodejs%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89.html#process-模块" class="sidebar-link">process 模块</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-03-23-nodejs%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89.html#events-模块" class="sidebar-link">events 模块</a></li></ul></li></ul></section></li></ul> </aside> <div><main class="page reco-hide"> <div class="page-title"><h1>nodejs基础（1）</h1> <hr> <div data-v-b53d65a4><i class="iconfont reco-account" data-v-b53d65a4><span data-v-b53d65a4>Yu Lei</span></i> <i class="iconfont reco-date" data-v-b53d65a4><span data-v-b53d65a4>2019-3-23</span></i> <!----> <i class="iconfont reco-tag tags" data-v-b53d65a4><span class="tag-item" data-v-b53d65a4>
+      nodejs
+    </span></i></div></div> <div class="content__default"><h1 id="nodejs"><a href="#nodejs" aria-hidden="true" class="header-anchor">#</a> nodejs</h1> <p>环境变量 带 cmd 下 set 有变量的名称和 变量的值</p> <h2 id="基础全局变量"><a href="#基础全局变量" aria-hidden="true" class="header-anchor">#</a> 基础全局变量</h2> <p>全局对象 global 本质上 window 就是拓展自 global 对象</p> <p>console 等模块</p> <p>__dirname 当前文件所在的目录 这个是一个全局变量</p> <p>__filename 当前文件的所在目录</p> <h2 id="事件循环-eventloop"><a href="#事件循环-eventloop" aria-hidden="true" class="header-anchor">#</a> 事件循环 EventLoop</h2> <p>nodejs 是单线程的</p> <ul><li><p>任务进入执行栈</p></li> <li><p>判断是同步还是异步任务</p></li> <li><p>同步任务进入主线程中 然后执行</p></li> <li><p>异步任务进入到一个 event table 异步事件表</p></li> <li><p>在异步事件表中注册回调函数 event queue 事件队列</p></li> <li><p>主线程任务执行完毕 读取任务队列的结果 然后进入主线程执行</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">settimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token number">1000</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+# 如果在没有settimeout  的时候在执行打印<span class="token number">3</span> 后js就会退出程序
+# 如果在存在settimeout，这个异步的时候，会主线程中执行打印 <span class="token number">1</span> <span class="token number">3</span> ，而异步任务settimeout 放到事件循环中  然后再主线程全部结束后 执行异步事件循环 ，再执行异步事件循环过程中  <span class="token number">1</span>进入循环检查loop  是否存活 不存活直接退出，
+#存活 timer   再这个阶段处理所有的settime out  等定时器的异步监视定时器的时间到达
+# 然后进入 pending  i<span class="token operator">/</span>o callback  网络读写等的异步任务  第一阶段  pending 阶段，然后 idle prepare 内部阶段 poll 轮询阶段  这个阶段会可能有阻塞  这个阶段有超时控制
+# 然后 check 阶段 处理 setImmediate 的回调函数 这个是新增的一个函数
+#处理关闭接阶段关闭<span class="token constant">IO</span>  关闭settimeout  等等
+#如果  异步函数不存活直接退出  如果存活直接进入下一个循环。u也就是哦查看是否全部完成。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div></li></ul> <h3 id="宏任务与微任务"><a href="#宏任务与微任务" aria-hidden="true" class="header-anchor">#</a> 宏任务与微任务</h3> <p>宏任务就是 主体的 script settimeout 和 setinterval</p> <p>微任务就是 promise process.nextTick</p> <p>时间循环过程中先执行宏任务，宏任务执行完毕后看有没有可执行的微任务 如果有则执行微任务，然后进入下一个循环</p> <p>也就是说 promise 再不是 then 或者 catch 阶段是同步的</p> <p>首先区分 是同步还是异步 然后区分事件循环主次排列 任务推进主线程执行的过程中分未宏任务（先）和微任务（后）</p> <h2 id="模块化系统"><a href="#模块化系统" aria-hidden="true" class="header-anchor">#</a> 模块化系统</h2> <p>commonjs 规范</p> <h3 id="定义模块"><a href="#定义模块" aria-hidden="true" class="header-anchor">#</a> 定义模块</h3> <ol><li>一个文件就是一个独立的模块</li> <li>模块加载使用同步模式</li> <li>通过 require 函数导入 exports 对象导出</li> <li>每一个模块都有一个自己的独立的作用域---模块作用域</li></ol> <h3 id="导入模块"><a href="#导入模块" aria-hidden="true" class="header-anchor">#</a> 导入模块</h3> <p>require（）内部接受模块的 ID 或是模块的路径</p> <p>被导入的文件会自动执行，</p> <p>被导入的文件变量之间不会互相冲突</p> <p>node 可以把内部私有的数据挂载到全局对象下面这样导出都可以访问，但是这种做法并不推荐 因为污染全局变量，不会被垃圾回收期回受占用内存消耗资源。</p> <p>require 方法就收的就是 exports 导出的返回值</p> <h3 id="模块导出"><a href="#模块导出" aria-hidden="true" class="header-anchor">#</a> 模块导出</h3> <p>把要导出的挂载到 exports 对象上。</p> <p>exports 对象其实是 module.exports 的封装</p> <p>module 包含了很多属性</p> <p>id 当前模块的唯一标识符 默认 ID 为当前的文件的绝对路径</p> <p>exports 导出对象</p> <p>parent 被引入的文件是子文件 而引入的则为父模块</p> <p>filename 当前文件的文件路径加名称</p> <p>loaded 是否已经加载完成</p> <p>children 引入文件的子集</p> <p>paths</p> <h3 id="模块化的分类"><a href="#模块化的分类" aria-hidden="true" class="header-anchor">#</a> 模块化的分类</h3> <ol><li>文件机制</li> <li>文件夹作为 node_modules 的加载机制，当导入的是一个文件夹的时候就会触发文件夹导入模块，自动导入该文件夹下 index.js
+可以指定文件夹的 package.json {name:'',main:''}name 是文件夹的名称 main 是文件夹的入口文件，如果导入的是 node_modules 下的只需要写文件夹的名称。</li> <li>全局文件夹模式，node 安装的额时候自动创建一个文件夹，所有的都可以用。安装的额时候指令-G 就可以安装到全局。</li> <li>核心文件夹模式，node 已经再安装过程已经转杯好的模块，内置模块。</li> <li>同名优先级 1 内置模块 2 自定义 3 node_modules</li> <li>文件处理机制 同名优先加载 1 js 2 json 3 .node</li></ol> <h3 id="es6-的模块化"><a href="#es6-的模块化" aria-hidden="true" class="header-anchor">#</a> es6 的模块化</h3> <ol><li>开启 es6 模块化</li> <li>导入 imports {对象解构赋值} from ‘’ imports aaa as bbb from ‘’</li> <li>export 导出 export default 111 不需要起名字 直接默认导出，每个模块只能默认导出一个</li> <li>import 和 export 只能在 js 顶级域内不可以放在局部。</li></ol> <h3 id="stream-流"><a href="#stream-流" aria-hidden="true" class="header-anchor">#</a> Stream 流</h3> <p>这个是一个抽象的接口 集体的实现由模块实现
+流的基本类型</p> <ol><li><p>Writable 可写流
+.write(chunk，编码，回调)写
+.end(chunk，编码，回调)结束
+.setDefaultEncoding(编码)设置编码
+事件</p></li> <li><p>readable 可读流
+读取流
+setEncoding 设置编码
+read（[size]）读取方法
+pipe（） 开启管道
+pause 暂停
+resume 恢复</p></li> <li><p>Duplex 可读可写流 （net.socket 基于这个实现）双工数据流</p></li></ol> <p>transfrom 可修改的双共数据流</p> <h3 id="buffer"><a href="#buffer" aria-hidden="true" class="header-anchor">#</a> Buffer</h3> <p>Buffer.alloc(size,fill,encoding) 分配一个大小 size 字节的缓存区
+Buffer 取值也可以向一个数组一样根据下标进行，长度表示的是字符长 字节长
+Buffer.from() 从其他的格式转换成 Buffer
+Buffer.fill(data，start，end，encoding)填充 用数据填充一个 buffer
+buffer.write(string，start，length，encoding) 写入数据
+buffer.includes(value，byteoffset，encoding) 写入数据 是否包括
+buffer.index() 某一个字节的下标
+buffer.compare()比较两个 buffer 大小
+buffer.equal()比较两个 buffer 数据是否相同</p> <h3 id="filesystem"><a href="#filesystem" aria-hidden="true" class="header-anchor">#</a> filesystem</h3> <p>fs.read 文件的读
+fs.readFile()
+fs.write 文件的写
+fs.writeFile()
+fs.appendFile() 在已有文件内部追加文件
+fs.stats 文件的属性 创建 修改时间等等
+fs.unlink()删除文件
+fs.mkdir()创建文件夹 不会进行递归创建
+fs.rmdir()移出文件夹 不能删除非空文件夹
+fs.readdir()
+fs.readdirSync()读取文件夹
+fs.rename()重命名文件
+fs.watch(filename，options，listener)监听文件或者目录的状态变化的 listener 由两个 参数 1 eventtype 2 filename
+fs.watchFile(filename,options,listener) 用来监听文件的数据的变化
+fs.copyfile()
+fs.stats 文件的信息
+fs.open() 打开一个文件 返回一个文件的描述符 这个文件描述符可以被用作 其他读写操作的第一个参数 也就是其他方法中的第一个参数 fd</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> data<span class="token punctuation">,</span> options<span class="token punctuation">,</span> callback<span class="token punctuation">)</span>
+<span class="token comment">//file 是文件名称或者路径 string Buffer URL 等等 data  数据 options  选项（1.编码 2 文件权限mode 3 支持的文件系统   callback  回调</span>
+
+fs<span class="token punctuation">.</span><span class="token function">appendFile</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> data<span class="token punctuation">,</span> options<span class="token punctuation">,</span> callback<span class="token punctuation">)</span>
+# 追加由属性叫flag  模式标记
+fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> aa<span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">stats</span><span class="token punctuation">(</span><span class="token string">'文件路径'</span><span class="token punctuation">)</span>
+aa<span class="token punctuation">.</span><span class="token function">isFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+#删除文件夹同步版
+<span class="token keyword">function</span> <span class="token function">rmdir</span><span class="token punctuation">(</span><span class="token parameter">dirpath</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>dirpath<span class="token punctuation">)</span> <span class="token keyword">return</span>
+
+    <span class="token keyword">let</span> dir <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readdirSync</span><span class="token punctuation">(</span>dirpath<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> dir<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> childrenPath <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>dirpath<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>dir<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>fs<span class="token punctuation">.</span><span class="token function">statSync</span><span class="token punctuation">(</span>childrenPath<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">rmdir</span><span class="token punctuation">(</span>childrenPath<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            fs<span class="token punctuation">.</span><span class="token function">unlinkSync</span><span class="token punctuation">(</span>childrenPath<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    fs<span class="token punctuation">.</span><span class="token function">rmdirSync</span><span class="token punctuation">(</span>dirpath<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+
+
+#fs<span class="token punctuation">.</span><span class="token function">watch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+fs<span class="token punctuation">.</span><span class="token function">watch</span><span class="token punctuation">(</span><span class="token string">'./a'</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span>
+  persistent：<span class="token boolean">true</span> <span class="token punctuation">,</span>#默认是<span class="token boolean">true</span>  如果文件被监视  进程是否继续运行
+  recursive<span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>#是否监听子文件文件夹  默认是<span class="token boolean">false</span>
+  encoding<span class="token punctuation">:</span><span class="token string">'utf8'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token parameter">rename或者是change</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+#rename  会在删除  新增文件 或改名文件的时候触发
+#change  会在增删改文件内容的时候触发
+
+<span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br></div></div><p>文件模块在 10.0 版本后增加很多基于 promise 实现的文件的操作方法，不在需要回调函数。
+在 class filehandle 模块下</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">let</span> fd <span class="token operator">=</span> filehandle<span class="token punctuation">.</span><span class="token function">fd</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+filehandle<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>buffer<span class="token punctuation">,</span> offset<span class="token punctuation">,</span> length<span class="token punctuation">,</span> position<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h3 id="process-模块"><a href="#process-模块" aria-hidden="true" class="header-anchor">#</a> process 模块</h3> <p>这个模块是一个全局的对象不需要 require ，这个模块中包含了启动 node 的时候带有的参数
+.argv 用来获取当前 node 进程相关参数 可以获取命令中的一些参数 使用方法在命令写参数在 process.argv[]中获取出来
+.env 环境变量 设置在不同的环境
+.exit([code]) 退出 当在某个阶段的时候让程序退出
+.cwd 当前程序的工作目录
+，memoryUsage 程序对当前内存使用情况
+getUid 获取当前程序的 Uid</p> <p>标准输出流 process.stdout
+.write(data,encoding,callback) 数据 编码 回调
+标准输入流 process.stdin.on('') data 监听输入的数据</p> <p>process 的命令行拓展工具 1 commander 2 chalk（命令行的美化） 3 Inquirer 命令行的箭头选择</p> <h3 id="events-模块"><a href="#events-模块" aria-hidden="true" class="header-anchor">#</a> events 模块</h3> <p>这个模块是 nodejs 的核心模块 nodejs 中大部分模块都使用了或者继承了这个模块。事件绑定函数
+这个模块中又个核心类 EventEmmiter
+.emit(eventName ,参数) 触发
+.addlistner(eventName,listener) 绑定
+.prependListener 在所有的绑定事件最前面绑定一个事件
+.on(evenetName,listener) 绑定
+.off(eventName,listener)移除
+.removeListner(eventName,listener) 移除
+.removeAllListener 移出所有
+.eventsNames（） 当前对象下面所有的被监听的事件
+默认情况下一个事件最多支持 10 个监听器</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">const</span> EventEmmiter <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'events'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Persion</span> <span class="token keyword">extends</span> <span class="token class-name">EventEmmiter</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> age</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age
+  <span class="token punctuation">}</span>
+  <span class="token function">groupUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token operator">++</span><span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'zg'</span><span class="token punctuation">)</span> <span class="token comment">//触发长高事件</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Persion</span><span class="token punctuation">(</span><span class="token string">'hahah'</span><span class="token punctuation">,</span> <span class="token string">'18'</span><span class="token punctuation">)</span>
+p1<span class="token punctuation">.</span><span class="token function">addListener</span><span class="token punctuation">(</span><span class="token string">'zg'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">//绑定事件</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'啊 长高了~'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+p1<span class="token punctuation">.</span><span class="token function">groupUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">//18 啊 长高了~ 19 啊 长高了~ 20 啊 长高了~</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>events 最大的作用是在异步事件的钩子 或者开发模块化</p></div> <!----> <footer class="page-edit"><!----> <!----></footer> <!----> </main> <div class="valine-wrapper" data-v-5029e45b><div id="valine" data-v-5029e45b></div></div></div> <div class="back-to-ceiling" style="right:1rem;bottom:3rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;background-color:rgba(231, 234, 241,.5);display:none;" data-v-d0bfeaa4 data-v-d0bfeaa4><i class="iconfont reco-up" data-v-d0bfeaa4></i></div></div></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.565ad12a.js" defer></script><script src="/assets/js/4.ed939ccf.js" defer></script><script src="/assets/js/1.0b802b94.js" defer></script><script src="/assets/js/13.c7d9d8f6.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>nodejs的GUI基础electron（1） | Y Lei&#39;S Blog</title>
+    <meta name="description" content="nodejs的GUI基础electron">
+    <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="nodejs,nodejs的GUI基础electron">
+    <link rel="preload" href="/assets/css/0.styles.ad66585c.css" as="style"><link rel="preload" href="/assets/js/app.565ad12a.js" as="script"><link rel="preload" href="/assets/js/4.ed939ccf.js" as="script"><link rel="preload" href="/assets/js/1.0b802b94.js" as="script"><link rel="preload" href="/assets/js/15.e33dd41d.js" as="script"><link rel="prefetch" href="/assets/js/10.8cce62b7.js"><link rel="prefetch" href="/assets/js/11.130790c6.js"><link rel="prefetch" href="/assets/js/12.3d9f9702.js"><link rel="prefetch" href="/assets/js/13.c7d9d8f6.js"><link rel="prefetch" href="/assets/js/14.0456630e.js"><link rel="prefetch" href="/assets/js/16.382c9bcd.js"><link rel="prefetch" href="/assets/js/17.18e1a90e.js"><link rel="prefetch" href="/assets/js/18.f5d5c127.js"><link rel="prefetch" href="/assets/js/19.55621491.js"><link rel="prefetch" href="/assets/js/20.f4ab203f.js"><link rel="prefetch" href="/assets/js/21.b3f1dd79.js"><link rel="prefetch" href="/assets/js/22.a4769bbd.js"><link rel="prefetch" href="/assets/js/23.a3108ef1.js"><link rel="prefetch" href="/assets/js/24.455c5906.js"><link rel="prefetch" href="/assets/js/25.3b08ed65.js"><link rel="prefetch" href="/assets/js/26.98348e29.js"><link rel="prefetch" href="/assets/js/27.50ded5ec.js"><link rel="prefetch" href="/assets/js/28.b5ff8778.js"><link rel="prefetch" href="/assets/js/29.274f94db.js"><link rel="prefetch" href="/assets/js/30.c9db3a1b.js"><link rel="prefetch" href="/assets/js/31.603f2f81.js"><link rel="prefetch" href="/assets/js/32.b2840a37.js"><link rel="prefetch" href="/assets/js/33.fd1960f2.js"><link rel="prefetch" href="/assets/js/34.5734f5e1.js"><link rel="prefetch" href="/assets/js/35.537cc99c.js"><link rel="prefetch" href="/assets/js/36.9a7531ad.js"><link rel="prefetch" href="/assets/js/37.a3aece7e.js"><link rel="prefetch" href="/assets/js/38.b148e348.js"><link rel="prefetch" href="/assets/js/39.b545f40f.js"><link rel="prefetch" href="/assets/js/40.fb5f0a0e.js"><link rel="prefetch" href="/assets/js/41.15aa988a.js"><link rel="prefetch" href="/assets/js/42.41575e65.js"><link rel="prefetch" href="/assets/js/43.94c84e7c.js"><link rel="prefetch" href="/assets/js/44.584661fb.js"><link rel="prefetch" href="/assets/js/5.61cadc21.js"><link rel="prefetch" href="/assets/js/6.51c4d940.js"><link rel="prefetch" href="/assets/js/7.b5260bec.js"><link rel="prefetch" href="/assets/js/8.61073b5c.js"><link rel="prefetch" href="/assets/js/9.4a046adc.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.2553b2f0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ad66585c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container"><div><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/avatar-300px.png" alt="Y Lei'S Blog" class="logo"> <span class="site-name">Y Lei'S Blog</span></a> <div class="links"><div class="color-picker"><a href="#" class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="theme-options"><!----> <div class="dark-theme-options toggle-option"><label for="dark-theme-toggle">Enable Dark Theme?</label> <input id="dark-theme-toggle" type="checkbox" checked="checked"></div></div></div></div> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><a href="/category/Front-End.html" class="nav-link"><i class="iconfont reco-blog"></i>
+  Blog
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Library
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/views/other/My favourite.html" class="nav-link"><i class="iconfont iconfontMy icon-tubiaoshezhixihuandeinhuo"></i>
+  My Favourite
+</a></li><li class="dropdown-item"><!----> <a href="/views/other/Interview question.html" class="nav-link"><i class="iconfont iconfontMy icon---copy"></i>
+  Interview Question
+</a></li><li class="dropdown-item"><!----> <a href="https://yu-lei.gitbook.io/notes/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-book"></i>
+  Notes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><a href="/Tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/views/other/guide.html" class="nav-link"><i class="iconfont reco-account"></i>
+  My CV
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/rainyulei" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.linkedin.com/in/yu-lei-42827a17b/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-linkedin"></i>
+  linkedin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.zhihu.com/people/ha-ha-ha-he-he-he-39/activities" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-zhihu"></i>
+  Zhihu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><a href="/category/Front-End.html" class="nav-link"><i class="iconfont reco-blog"></i>
+  Blog
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Library
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/views/other/My favourite.html" class="nav-link"><i class="iconfont iconfontMy icon-tubiaoshezhixihuandeinhuo"></i>
+  My Favourite
+</a></li><li class="dropdown-item"><!----> <a href="/views/other/Interview question.html" class="nav-link"><i class="iconfont iconfontMy icon---copy"></i>
+  Interview Question
+</a></li><li class="dropdown-item"><!----> <a href="https://yu-lei.gitbook.io/notes/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-book"></i>
+  Notes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><a href="/Tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/views/other/guide.html" class="nav-link"><i class="iconfont reco-account"></i>
+  My CV
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/rainyulei" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.linkedin.com/in/yu-lei-42827a17b/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-linkedin"></i>
+  linkedin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.zhihu.com/people/ha-ha-ha-he-he-he-39/activities" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-zhihu"></i>
+  Zhihu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>nodejs的GUI基础electron（1）</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#初步使用" class="sidebar-link">初步使用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#electron-的进程" class="sidebar-link">electron 的进程</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#node" class="sidebar-link">node</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#app-对象" class="sidebar-link">app 对象</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#browserwindow-窗口" class="sidebar-link">BrowserWindow 窗口</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#bw1-webcontents" class="sidebar-link">bw1.webContents</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#loadfile" class="sidebar-link">loadFile()</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#loadurl" class="sidebar-link">loadurl</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#窗口" class="sidebar-link">窗口</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#父子窗口" class="sidebar-link">父子窗口</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#模态窗口" class="sidebar-link">模态窗口</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#菜单" class="sidebar-link">菜单</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#角色" class="sidebar-link">角色</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#菜单事件" class="sidebar-link">菜单事件</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#数据共享与通信" class="sidebar-link">数据共享与通信</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#通知-notification" class="sidebar-link">通知 notification</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#election-打包" class="sidebar-link">election 打包</a></li><li class="sidebar-sub-header"><a href="/views/Back-end/2019/2019-04-07-NodeJs%E7%9A%84GUI__ELectron(1).html#nsis" class="sidebar-link">NSIS</a></li></ul></li></ul></section></li></ul> </aside> <div><main class="page reco-hide"> <div class="page-title"><h1>nodejs的GUI基础electron（1）</h1> <hr> <div data-v-b53d65a4><i class="iconfont reco-account" data-v-b53d65a4><span data-v-b53d65a4>Yu Lei</span></i> <i class="iconfont reco-date" data-v-b53d65a4><span data-v-b53d65a4>2019-4-7</span></i> <!----> <i class="iconfont reco-tag tags" data-v-b53d65a4><span class="tag-item" data-v-b53d65a4>
+      nodejs
+    </span><span class="tag-item" data-v-b53d65a4>
+      electron
+    </span></i></div></div> <div class="content__default"><h1 id="electron"><a href="#electron" aria-hidden="true" class="header-anchor">#</a> Electron</h1> <ol><li>安装</li> <li>目录结构</li> <li>解析代码</li></ol> <h2 id="初步使用"><a href="#初步使用" aria-hidden="true" class="header-anchor">#</a> 初步使用</h2> <h3 id="electron-的进程"><a href="#electron-的进程" aria-hidden="true" class="header-anchor">#</a> electron 的进程</h3> <p>在 electron 中 被 electron 直接运行的脚本 package 指定的 main 脚本为主进程,而所有的 web 界面运行在一个独立的进程中,属于渲染进程,我们可以通过主进程创建一个渲染进程,但是当一个 web 界面被销毁的时候对应的渲染进程也会被终止.</p> <h3 id="node"><a href="#node" aria-hidden="true" class="header-anchor">#</a> node</h3> <p>在 electron 中可以使用所有的 nodejs 的的接口</p> <h3 id="app-对象"><a href="#app-对象" aria-hidden="true" class="header-anchor">#</a> app 对象</h3> <p>这个对象提供了一系列对象事件来控制整个应用程序的生命周期,从打开到关闭.同时也有提供一些方法管理应用程序的状态和行为.</p> <h3 id="browserwindow-窗口"><a href="#browserwindow-窗口" aria-hidden="true" class="header-anchor">#</a> BrowserWindow 窗口</h3> <p>创建和控制浏览器窗口,实现显示界面,每一个 BrowserWindow 对象都是一个渲染进程,同时该对象也提供了各种操控的 api 包括事件属性和方法</p> <h3 id="bw1-webcontents"><a href="#bw1-webcontents" aria-hidden="true" class="header-anchor">#</a> bw1.webContents</h3> <p>类似于浏览器中的 window,这个对象下由个方法 opendevtools 开启调试,与窗口有关的内容都是通过这个来操纵的.</p> <h3 id="loadfile"><a href="#loadfile" aria-hidden="true" class="header-anchor">#</a> loadFile()</h3> <p>加载页面(也就是我们的要显示的内同),页面的地址使用相对路径,相对路径相对于应用程序的根目录,记载本地的协议</p> <h3 id="loadurl"><a href="#loadurl" aria-hidden="true" class="header-anchor">#</a> loadurl</h3> <p>使用 URL 协议加载文件可以时 HTTP 协议 也可以时 file 协议 ,加载远程协议</p> <h3 id="窗口"><a href="#窗口" aria-hidden="true" class="header-anchor">#</a> 窗口</h3> <p>一般窗口 无边框窗口 透明窗口</p> <p>无边框窗口 frame:false 主要用来实现所有的按钮自定义
+无边框的窗口先要达到点击拖动效果 可以使用 css 中的 -webkit-app-region:drag 这个属性
+透明窗口 frame:false transparent:true</p> <h3 id="父子窗口"><a href="#父子窗口" aria-hidden="true" class="header-anchor">#</a> 父子窗口</h3> <p>在子窗口的 options 内部增加 parent 选项 value 指向父窗口,子窗口挂载在父窗口上 永远在父窗口前面,会同时被关闭.</p> <h3 id="模态窗口"><a href="#模态窗口" aria-hidden="true" class="header-anchor">#</a> 模态窗口</h3> <p>parent:父窗口, model:true 子窗口此使会禁用父窗口 类似于 alert</p> <h3 id="菜单"><a href="#菜单" aria-hidden="true" class="header-anchor">#</a> 菜单</h3> <p>有 normal submenu separator 以及 checkbox 和 redio 五种菜单类型</p> <pre><code>```javascript
+let m1 = new Menu() //创建菜单
+let mi1 = new MenuItem({
+  type: 'normal',
+  label: '文件'
+}) //内部为options
+let mi2 = new MenuItem({
+  type: 'submenu',
+  label: '查看',
+  submenu: [
+    {
+      type: 'normal',
+      label: '查看文件'
+    },
+    {
+      type: 'separator' //菜单的分隔符
+    },
+    {
+      type: 'normal',
+      label: '查看文件夹'
+    },
+    {
+        type:'checkbox'
+        label:'选项1'
+        checked:true //这个选项等到选中状态
+    },
+      {
+        type:'radio'
+        label:'aaaaa'
+        checked:true //这个选项等到选中状态
+    },  {
+        type:'radio'
+        label:'bbbbb'
+
+    }
+  ]
+})
+m1.append(mi1)
+m1.append(mi2)
+//指定该菜单显示的主题 具体哪个窗口  右键  上下文位置
+/**
+ * 菜单位置  1 顶层带单 2 上下文菜单
+ */
+//这个时menu  下的顶层方法  把菜单添加到窗口的最顶层
+Menu.setApplicationMenu(m1)
+```
+
+icon 菜单前面的小图标 visiabled 是否可见 enabled 是否可用
+</code></pre> <h3 id="角色"><a href="#角色" aria-hidden="true" class="header-anchor">#</a> 角色</h3> <p>也就是系统已经预设好的菜单,然后我们使用把他们赋值到按键上</p> <pre><code>```javascript
+let mi1 = new MenuItem({
+  role: 'quit',
+  label: '退出'
+})
+```
+</code></pre> <h3 id="菜单事件"><a href="#菜单事件" aria-hidden="true" class="header-anchor">#</a> 菜单事件</h3> <pre><code>```javascript
+let mi1 = new MenuItem({
+  type: 'normal',
+  label: '退出',
+  click() {
+    app.quit()
+  }
+})
+```
+</code></pre> <h3 id="数据共享与通信"><a href="#数据共享与通信" aria-hidden="true" class="header-anchor">#</a> 数据共享与通信</h3> <p>如果有两个窗口 或者渲染进程和主进程之间的通信</p> <pre><code>- 在渲染进程中不能直接获取到主进程中的数据的 ,在渲染进程中通过 electron 的 remote 在渲染进程中拿到主进程模块,该对象下有一个方法 getGlobal()
+
+  ```javascript
+  在 外部  进程把变量挂载到global  上
+  &lt;script&gt;
+    const {remote} = require('electron') ;//引入remote 模块 console.log(remote)//
+    console.log(remote.getGlobal('username'))
+  &lt;/script&gt;
+  ```
+
+- 通过进程通信 IPC ipcrenderer ipcmain
+
+  ```javascript
+  ipcRenderer.send(channel[,arg1][,arg2]....)//只能在渲染进程中使用
+  ipcMain.on(channel,listener)
+  listener(e,data) //监听
+      e.sender.send()//回复
+  //具体的实现
+  // 1 在渲染进程
+   const {
+      remote,
+      ipcRenderer
+  } = require('electron')
+   const aaaBtn = document.getElementById('aaa')
+  aaaBtn.onclick = () =&gt; {
+      ipcRenderer.send('getdata', 'username')//发送请求信息
+  }
+  // 2 在主进程中
+
+    ipcMain.on('getdata', (e, data) =&gt; {//监听到 渲染进程的请求   e  事件对象   data  对面的请求数据
+      console.log(e)
+   console.log(data)
+  e.sender.send('sendData', datas[data]) //发送 相应数据  sendData 频道名称 第二个参数 数据
+   })
+   //3 在渲染进程中
+   ipcRenderer.on('sendData', (e, data) =&gt; { //获取到数据
+      console.log(data)
+  })
+
+  ```
+
+- 主进程主动发消息到渲染进程 通过 win.webContents.send('hello')
+
+  ```javascript
+  win.webContents.send('hello', 'hello world')
+  // 在渲染京城中 通过ipcRenderer.on()
+  ipcRenderer.on('hello', (e, data) =&gt; {
+    console.log(data)
+  })
+  ```
+
+- 多个窗口之间的数据传递,通过浏览器的 API storage 或者 indexedDB,多个窗口之间其实时同域下的.
+
+  ```javascript
+  localstorage.setItem('val', 'hahah')
+  // 在其他窗口之间
+  localstorage.getItem('val')
+  ```
+
+- 在渲染进程中 可以使用 remote.app.exit() 退出窗口
+- 在渲染京城中最小化 remote.getcurrentWindow()//这个方法返回当前的渲染进程的窗口 渲染进程窗口.minimize() 最小化
+</code></pre> <h3 id="通知-notification"><a href="#通知-notification" aria-hidden="true" class="header-anchor">#</a> 通知 notification</h3> <p>在 win7 和 mac 系统上可以实现 右下角的通知信息功能</p> <h3 id="election-打包"><a href="#election-打包" aria-hidden="true" class="header-anchor">#</a> election 打包</h3> <p>打包的框架 election-builder</p> <h3 id="nsis"><a href="#nsis" aria-hidden="true" class="header-anchor">#</a> NSIS</h3> <p>帮助生成程序的安装打包向导</p> <pre><code>```javascript
+&quot;win&quot;: {
+  &quot;icon&quot;: &quot;./logo.png&quot;,
+  &quot;target&quot;: [
+    &quot;nsis&quot;
+  ]
+},
+&quot;nsis&quot;: {
+  &quot;oneclick&quot;: false, //一键生成安装
+  &quot;allowToChangeInstallationDirectory&quot;: true, //允许安装更改目录
+  &quot;installerIcon&quot;: &quot;./logo.png&quot;, //安装的图标
+  &quot;installerHeader&quot;: &quot;&quot;,//安装的头
+  &quot;license&quot;: &quot;./source/license.text&quot;//授权信息
+}
+```
+</code></pre></div> <!----> <footer class="page-edit"><!----> <!----></footer> <!----> </main> <div class="valine-wrapper" data-v-5029e45b><div id="valine" data-v-5029e45b></div></div></div> <div class="back-to-ceiling" style="right:1rem;bottom:3rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;background-color:rgba(231, 234, 241,.5);display:none;" data-v-d0bfeaa4 data-v-d0bfeaa4><i class="iconfont reco-up" data-v-d0bfeaa4></i></div></div></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.565ad12a.js" defer></script><script src="/assets/js/4.ed939ccf.js" defer></script><script src="/assets/js/1.0b802b94.js" defer></script><script src="/assets/js/15.e33dd41d.js" defer></script>
+  </body>
+</html>

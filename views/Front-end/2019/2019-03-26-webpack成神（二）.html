@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>webpack成神（2） | Y Lei&#39;S Blog</title>
+    <meta name="description" content="webpack成神">
+    <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="webpack">
+    <link rel="preload" href="/assets/css/0.styles.ad66585c.css" as="style"><link rel="preload" href="/assets/js/app.565ad12a.js" as="script"><link rel="preload" href="/assets/js/4.ed939ccf.js" as="script"><link rel="preload" href="/assets/js/1.0b802b94.js" as="script"><link rel="preload" href="/assets/js/23.a3108ef1.js" as="script"><link rel="prefetch" href="/assets/js/10.8cce62b7.js"><link rel="prefetch" href="/assets/js/11.130790c6.js"><link rel="prefetch" href="/assets/js/12.3d9f9702.js"><link rel="prefetch" href="/assets/js/13.c7d9d8f6.js"><link rel="prefetch" href="/assets/js/14.0456630e.js"><link rel="prefetch" href="/assets/js/15.e33dd41d.js"><link rel="prefetch" href="/assets/js/16.382c9bcd.js"><link rel="prefetch" href="/assets/js/17.18e1a90e.js"><link rel="prefetch" href="/assets/js/18.f5d5c127.js"><link rel="prefetch" href="/assets/js/19.55621491.js"><link rel="prefetch" href="/assets/js/20.f4ab203f.js"><link rel="prefetch" href="/assets/js/21.b3f1dd79.js"><link rel="prefetch" href="/assets/js/22.a4769bbd.js"><link rel="prefetch" href="/assets/js/24.455c5906.js"><link rel="prefetch" href="/assets/js/25.3b08ed65.js"><link rel="prefetch" href="/assets/js/26.98348e29.js"><link rel="prefetch" href="/assets/js/27.50ded5ec.js"><link rel="prefetch" href="/assets/js/28.b5ff8778.js"><link rel="prefetch" href="/assets/js/29.274f94db.js"><link rel="prefetch" href="/assets/js/30.c9db3a1b.js"><link rel="prefetch" href="/assets/js/31.603f2f81.js"><link rel="prefetch" href="/assets/js/32.b2840a37.js"><link rel="prefetch" href="/assets/js/33.fd1960f2.js"><link rel="prefetch" href="/assets/js/34.5734f5e1.js"><link rel="prefetch" href="/assets/js/35.537cc99c.js"><link rel="prefetch" href="/assets/js/36.9a7531ad.js"><link rel="prefetch" href="/assets/js/37.a3aece7e.js"><link rel="prefetch" href="/assets/js/38.b148e348.js"><link rel="prefetch" href="/assets/js/39.b545f40f.js"><link rel="prefetch" href="/assets/js/40.fb5f0a0e.js"><link rel="prefetch" href="/assets/js/41.15aa988a.js"><link rel="prefetch" href="/assets/js/42.41575e65.js"><link rel="prefetch" href="/assets/js/43.94c84e7c.js"><link rel="prefetch" href="/assets/js/44.584661fb.js"><link rel="prefetch" href="/assets/js/5.61cadc21.js"><link rel="prefetch" href="/assets/js/6.51c4d940.js"><link rel="prefetch" href="/assets/js/7.b5260bec.js"><link rel="prefetch" href="/assets/js/8.61073b5c.js"><link rel="prefetch" href="/assets/js/9.4a046adc.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.2553b2f0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ad66585c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container"><div><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/avatar-300px.png" alt="Y Lei'S Blog" class="logo"> <span class="site-name">Y Lei'S Blog</span></a> <div class="links"><div class="color-picker"><a href="#" class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="theme-options"><!----> <div class="dark-theme-options toggle-option"><label for="dark-theme-toggle">Enable Dark Theme?</label> <input id="dark-theme-toggle" type="checkbox" checked="checked"></div></div></div></div> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><a href="/category/Front-End.html" class="nav-link"><i class="iconfont reco-blog"></i>
+  Blog
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Library
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/views/other/My favourite.html" class="nav-link"><i class="iconfont iconfontMy icon-tubiaoshezhixihuandeinhuo"></i>
+  My Favourite
+</a></li><li class="dropdown-item"><!----> <a href="/views/other/Interview question.html" class="nav-link"><i class="iconfont iconfontMy icon---copy"></i>
+  Interview Question
+</a></li><li class="dropdown-item"><!----> <a href="https://yu-lei.gitbook.io/notes/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-book"></i>
+  Notes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><a href="/Tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/views/other/guide.html" class="nav-link"><i class="iconfont reco-account"></i>
+  My CV
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/rainyulei" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.linkedin.com/in/yu-lei-42827a17b/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-linkedin"></i>
+  linkedin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.zhihu.com/people/ha-ha-ha-he-he-he-39/activities" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-zhihu"></i>
+  Zhihu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><a href="/category/Front-End.html" class="nav-link"><i class="iconfont reco-blog"></i>
+  Blog
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Library
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/views/other/My favourite.html" class="nav-link"><i class="iconfont iconfontMy icon-tubiaoshezhixihuandeinhuo"></i>
+  My Favourite
+</a></li><li class="dropdown-item"><!----> <a href="/views/other/Interview question.html" class="nav-link"><i class="iconfont iconfontMy icon---copy"></i>
+  Interview Question
+</a></li><li class="dropdown-item"><!----> <a href="https://yu-lei.gitbook.io/notes/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-book"></i>
+  Notes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><a href="/Tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/views/other/guide.html" class="nav-link"><i class="iconfont reco-account"></i>
+  My CV
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/rainyulei" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.linkedin.com/in/yu-lei-42827a17b/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-linkedin"></i>
+  linkedin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.zhihu.com/people/ha-ha-ha-he-he-he-39/activities" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-zhihu"></i>
+  Zhihu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>webpack成神（2）</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/views/Front-end/2019/2019-03-26-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E4%BA%8C%EF%BC%89.html#webpack-环境配置" class="sidebar-link">webpack 环境配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-03-26-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E4%BA%8C%EF%BC%89.html#使用环境变量" class="sidebar-link">使用环境变量</a></li><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-03-26-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E4%BA%8C%EF%BC%89.html#区分环境变量" class="sidebar-link">区分环境变量</a></li></ul></li><li><a href="/views/Front-end/2019/2019-03-26-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E4%BA%8C%EF%BC%89.html#webpack-的优化" class="sidebar-link">webpack 的优化</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-03-26-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E4%BA%8C%EF%BC%89.html#webpack-的忽略解析" class="sidebar-link">webpack 的忽略解析</a></li><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-03-26-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E4%BA%8C%EF%BC%89.html#配置-js-时默认会默认解析-node-modules" class="sidebar-link">配置 js 时默认会默认解析 node-modules</a></li><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-03-26-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E4%BA%8C%EF%BC%89.html#关于某些库的优化" class="sidebar-link">关于某些库的优化</a></li><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-03-26-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E4%BA%8C%EF%BC%89.html#动态链接库" class="sidebar-link">动态链接库</a></li><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-03-26-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E4%BA%8C%EF%BC%89.html#多线程打包实现快速打包" class="sidebar-link">多线程打包实现快速打包</a></li><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-03-26-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E4%BA%8C%EF%BC%89.html#webpack-中的自带优化打包，" class="sidebar-link">webpack 中的自带优化打包，</a></li><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-03-26-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E4%BA%8C%EF%BC%89.html#抽取公用代码" class="sidebar-link">抽取公用代码</a></li><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-03-26-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E4%BA%8C%EF%BC%89.html#懒加载" class="sidebar-link">懒加载</a></li><li class="sidebar-sub-header"><a href="/views/Front-end/2019/2019-03-26-webpack%E6%88%90%E7%A5%9E%EF%BC%88%E4%BA%8C%EF%BC%89.html#热更新" class="sidebar-link">热更新</a></li></ul></li></ul></section></li></ul> </aside> <div><main class="page reco-hide"> <div class="page-title"><h1>webpack成神（2）</h1> <hr> <div data-v-b53d65a4><i class="iconfont reco-account" data-v-b53d65a4><span data-v-b53d65a4>Yu Lei</span></i> <i class="iconfont reco-date" data-v-b53d65a4><span data-v-b53d65a4>2019-3-26</span></i> <!----> <i class="iconfont reco-tag tags" data-v-b53d65a4><span class="tag-item" data-v-b53d65a4>
+      webpack
+    </span></i></div></div> <div class="content__default"><h2 id="webpack-环境配置"><a href="#webpack-环境配置" aria-hidden="true" class="header-anchor">#</a> webpack 环境配置</h2> <h3 id="使用环境变量"><a href="#使用环境变量" aria-hidden="true" class="header-anchor">#</a> 使用环境变量</h3> <p>在开发环境 使用 dev 上线环境使用 production 测试环境使用 test，可以使用 webpack 自带插件 webpack.DeffinePlugin</p> <pre><code>```javascript
+plugins: [new webpack.DefinePlugin(
+    # 第一种 方法
+    DEV:&quot;'dev'&quot;//要用双引号  内部嵌套一个单引号，因为如果只写一个引号相当于 console。log（dev）这个时候dev 是未定义的
+    # 第二种方法
+    DEV:JSON.stringify('production'),//输出字符串
+    FLAG:'true',//输出boolean  的true
+    EXPORESSION:'1+1' //输出2//在内部可以直接使用这些值
+)]
+```
+</code></pre> <h3 id="区分环境变量"><a href="#区分环境变量" aria-hidden="true" class="header-anchor">#</a> 区分环境变量</h3> <p>创建三个配置文件，webpack.base.js webpack.production.js webpack.development.js</p> <pre><code>使用 webpack-merge
+
+    ```javascript
+    # 安装
+    npm i webpack-merge -D
+    # 在开发环境中使用
+    let {smart}  = require('webpack-merge')
+    let base = require('./webpack.base.js')
+    module.export=smart(base,{//集成了base中的所有配置 并且把mode 环境配置更改为development
+        mode:'development',
+        devserver,
+        devtool...
+    })
+    # 在生产环境中使用
+     let {smart}  = require('webpack-merge')
+    let base = require('./webpack.base.js')
+    module.export=smart(base,{//集成了base中的所有配置 并且把mode 环境配置更改为development
+        mode:'production',
+        minimizer...
+    })
+    ```
+</code></pre> <h2 id="webpack-的优化"><a href="#webpack-的优化" aria-hidden="true" class="header-anchor">#</a> webpack 的优化</h2> <h3 id="webpack-的忽略解析"><a href="#webpack-的忽略解析" aria-hidden="true" class="header-anchor">#</a> webpack 的忽略解析</h3> <p>配置不去解析特定包，看到包就忽略掉 在 module 选项下 配置<code>noParse:/jquery/</code>,这样可以根据通配符</p> <pre><code>找到 jquery 而不去解析 jquery 中的依赖项
+</code></pre> <h3 id="配置-js-时默认会默认解析-node-modules"><a href="#配置-js-时默认会默认解析-node-modules" aria-hidden="true" class="header-anchor">#</a> 配置 js 时默认会默认解析 node-modules</h3> <p>这个时候需要配置 babel 的排除和包含关系，排除 exclude 包含 include</p> <pre><code>```javascript
+{
+    test:/\.js/,
+    exclude:/node_modules/,//排除node-modules 目录
+    include:path.resolve('src'),//包含 src目录，意思时只在src 中进行寻找
+    use:{
+        loader:'babel-loader',
+        options:{
+            presets:[
+                '@babel/preset-env',
+                '@babel/preset-react'
+            ]
+        }
+    }
+}
+```
+</code></pre> <h3 id="关于某些库的优化"><a href="#关于某些库的优化" aria-hidden="true" class="header-anchor">#</a> 关于某些库的优化</h3> <p>忽略掉第三方库内引用了却在实际开发中没有使用的代码块，使用 webpack.IgnorPlugin()</p> <pre><code>```javascript
+# 使用
+plugins：[
+    new webpack.IgnorePlugin(/\./locale/,/monent/)//如果在moment中引用了。locale 这个文件夹 就忽略掉这个打包请求
+]
+# 自己手动引用忽略的包 这样就可以减小打包体积
+```
+</code></pre> <h3 id="动态链接库"><a href="#动态链接库" aria-hidden="true" class="header-anchor">#</a> 动态链接库</h3> <p>如果在开发过程中需要某些第三方的库，这些库在后期过程中时根本不会产生变动并且这些库又很大，所以这分割时候</p> <pre><code>可以在打包的过程中先抽离打包出这个库，然后把这些库作为后续开发的依赖引入。
+
+```javascript
+# 新建配置文件webpack.config.react.js,这个配置文件作为打包第三方库依赖的配置文件
+let path = require('path')
+const webpack =require('webpack')
+module.export={
+    mdoe:'development',
+    extry:{
+        react:['react','react-dom']
+    }
+    output:{
+        filename:'_dll_[name].js',//打包生成第三方库的文件名称
+        path:path.resolve(__dirname,'dist'),//生成路径
+        library:'_dll_[name]',//生成第三方模块的入口变量名称
+        libaryTarget:'var'//caonst commenjs ... 生成第三方库的导出方式  一般是使用var 默认不写是var
+
+    },
+    plugins:[
+        new webpack.DLLPlugin({
+            name:'_dll_[name]',//这个名字和libary  名字要相同，打包出依赖的第三方库
+            path:path.resolve(__dirname,'dist','manifest.json')//生成第三方库 在我们些的js 中引用和依赖的地图
+        })
+    ]
+}
+//根据上面文件打包会出现一个 manifest.json 关系对应地图 和一个_dll_react.js的文件
+//使用上面的文件  在html  中引入 ./_dll_react.js
+//然后再wenpack。config。js  中指定如果在打包过程中华又依赖关系到react  或者react-dom  那么去动态链接库中查找  而不是重新对node-modules  打包
+//
+plugins：{
+    new webpack.DLLReferencePlugin({
+        manifest:path.resolve(__dirname,'dist','minifest.json') //引用重新打包的依赖地图
+    })
+}
+
+```
+</code></pre> <h3 id="多线程打包实现快速打包"><a href="#多线程打包实现快速打包" aria-hidden="true" class="header-anchor">#</a> 多线程打包实现快速打包</h3> <p>当项目比较大的时候使用多线程打包会加快速度 ，</p> <pre><code>使用 happypack
+
+```javascript
+//安装
+npm i happypack -D
+//使用
+const HappyPackPlugin = reuqire('happypack')
+//在module中需要使用多线程快速打包的地方
+module:{
+    noParse:/jquery/，
+    rules:[
+        {
+            test:/\.js$/,
+            exclude:/node_modules/,
+            use:'HappyPackPlugin/loader?id=js'
+        }，
+        {
+            test:/\.css$/,
+            use:'HappyPackPlugin/loader?id=css'
+        }
+    ]
+},
+//在plugins  中指定happypack
+
+plugins:[
+    new HappyPackPlugin({//通过id=js 找到上面的use  然后是u用happy 中定义的规则解析器进行打包
+        id:'js',
+        use:[
+            {
+                loader:'babel-loader',
+                options:{
+                    presets:[
+                        '@babel/preset-env',
+                        '@babel/preset-react'
+                    ]
+                }
+            }
+        ]
+    }),
+    new HappyPackPlugin({//通过id=css 找到上面的use  然后是u用happy 中定义的规则解析器进行打包
+        id:'css',
+        use:[
+            {
+                loader:MinicssWebpackPlugin.loader,
+                options:{
+                }
+            },
+            'css-loader',
+            'postcss-loader'
+        ]
+    })
+]
+```
+</code></pre> <h3 id="webpack-中的自带优化打包，"><a href="#webpack-中的自带优化打包，" aria-hidden="true" class="header-anchor">#</a> webpack 中的自带优化打包，</h3> <pre><code>- webpack 在打包的时候默认在生产环境下会去除掉 import 却没有使用的代码块，而在开发环境下不会，这种叫做 tree-shaking
+  把没用到的代码自动删除掉，而如果使用 require 打包的时候会把没用到的代码也打包，也就是 require 不支持 tree-shaking
+- scope hosting 在 webpack 中会自动省略一些可以简化的代码
+</code></pre> <h3 id="抽取公用代码"><a href="#抽取公用代码" aria-hidden="true" class="header-anchor">#</a> 抽取公用代码</h3> <p>多用于多入口，与动态链接库有很大的差别，动态链接库最好不要使用与线上环境和整体性比较差的库。</p> <pre><code>```javascript
+// 在多入口多界面的时候如果 A 界面和B 界面又公用的部分  我们希望把他们单独抽取出来这样在A页面加载的时候加载出来 在B页面就不要再进行加载了
+//首先配置多入口
+module.exports = {
+  mode: 'production',
+  entry: {
+    index: __dirname + '/src/index.js',
+    other: __dirname + '/src/other.js'
+  },
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  optimization: {
+    splitChunks: {
+      //分割代码块
+      cacheGroups: {//缓存组
+        common: {//配置公共代码块的规则
+            chunks:'initial',//从入口处就开始提取代码  后面还有异步模块
+            miniSize:0，//超过大小就会被抽离
+            miniChunks：2，//引用多少次会被抽离  至少引用2次就会被抽离
+
+        },
+        verder:{//第三方模块被重复引用也会被抽离单个打包
+            priority:1,//优先抽离的权重，配置为1 权重越高先抽离  抽离 好单独的第三方然后再抽离 公用自定义代码 生成单独文件
+            test:/node_modules/,//正则匹配，可以使用es  正则匹配返回值形式
+            chunks:'initial',//从入口处就开始提取代码  后面还有异步模块，all async
+            miniSize:0，//超过大小就会被抽离
+            miniChunks：2，//引用多少次会被抽离  至少引用2次就会被抽离，默认为1次  2次是抽离公用代码的最小颗粒度
+        }
+      }
+    }
+  }
+}
+```
+</code></pre> <h3 id="懒加载"><a href="#懒加载" aria-hidden="true" class="header-anchor">#</a> 懒加载</h3> <pre><code>```javascript
+let btn = document.createElement('button')
+btn.innerHTML = 'click'
+btn.addEventListener('click', function() {
+  import('./source.js').then(data =&gt; {
+    data.dafault
+  })
+})
+document.body.appendChild(btn)
+```
+
+如果要实现上面的懒加载功能--点击按钮异步加载一个 js 代码块 然后自己执行
+实现上面功能需要 babel 的语法自动导入的插件 @babel/plugin-syntax-dynamic-import 需要再 wabpack 中设置
+
+```javascript
+//安装
+npm i  @babel/plugin-syntax-dynamic-import -D
+//使用
+{
+    test：/.js$,
+    use:[
+        {
+            loader:'babel-loader',
+            options:{
+                presets:[
+                    '@babel/preset-env',
+                    '@babel/preset-react'
+                ],
+                plugins:[
+                    '@babel/plugin-syntax-dynamic-import' //实现动态加载 ，在 引入的地方在defalt  上拿出来使用
+                ]
+            }
+        }
+    ]
+}
+// vue  react  等的路由的懒加载都是通过这种方法来实现的 实质上是jsonp
+```
+</code></pre> <p>在实际生产中打包会生成两个 js 文件一个是正常页面使用的 index。js 还会生成一个 懒加载请求的 1.js 当执行懒加载的时候才会请求到 1.js</p> <h3 id="热更新"><a href="#热更新" aria-hidden="true" class="header-anchor">#</a> 热更新</h3> <p>在开发过程中，每次保存或者代码有改变的时候会重新更新 代码重启服务器</p> <pre><code>注意：这个插件和 cleanwebpackplugin 插件同时使用会出现问题
+
+```javascript
+
+devServer:{
+    port:3000,
+    hot:true,//开启热更新
+    open:true，
+    contentBase:'./dist'
+
+},
+plugins:[
+    new webpack.NameModulePlugin(),//告诉我们热更新的模块的名称，打印更新的模块路径
+    new webpack.HotModlePrplacementPlugin()//wenpack 热更熊模块支持
+]
+//使用  热更新模块引入后会自动起作用  而NameModulePlugin 则要配合使用
+
+//在js中可以写
+import str from './index.js'
+console.log(str)
+if(module.hot){
+    module.hot.accept('./index',()=&gt;{//这个就是namemodule的作用
+        console.log('文件更新了')
+        let str = require('./index.js')
+        console.log(str)
+    })
+}
+```
+</code></pre></div> <!----> <footer class="page-edit"><!----> <!----></footer> <!----> </main> <div class="valine-wrapper" data-v-5029e45b><div id="valine" data-v-5029e45b></div></div></div> <div class="back-to-ceiling" style="right:1rem;bottom:3rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;background-color:rgba(231, 234, 241,.5);display:none;" data-v-d0bfeaa4 data-v-d0bfeaa4><i class="iconfont reco-up" data-v-d0bfeaa4></i></div></div></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.565ad12a.js" defer></script><script src="/assets/js/4.ed939ccf.js" defer></script><script src="/assets/js/1.0b802b94.js" defer></script><script src="/assets/js/23.a3108ef1.js" defer></script>
+  </body>
+</html>

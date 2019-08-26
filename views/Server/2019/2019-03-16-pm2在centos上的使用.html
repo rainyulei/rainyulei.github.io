@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>使用pm2管理nodejs应用 | Y Lei&#39;S Blog</title>
+    <meta name="description" content="在centos上部署nodejs+mongoose+redis+PM2应用">
+    <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="pm2在开发和运行过程中的使用，pm2+git 自动化部署nodejs项目">
+    <link rel="preload" href="/assets/css/0.styles.ad66585c.css" as="style"><link rel="preload" href="/assets/js/app.565ad12a.js" as="script"><link rel="preload" href="/assets/js/4.ed939ccf.js" as="script"><link rel="preload" href="/assets/js/1.0b802b94.js" as="script"><link rel="preload" href="/assets/js/37.a3aece7e.js" as="script"><link rel="prefetch" href="/assets/js/10.8cce62b7.js"><link rel="prefetch" href="/assets/js/11.130790c6.js"><link rel="prefetch" href="/assets/js/12.3d9f9702.js"><link rel="prefetch" href="/assets/js/13.c7d9d8f6.js"><link rel="prefetch" href="/assets/js/14.0456630e.js"><link rel="prefetch" href="/assets/js/15.e33dd41d.js"><link rel="prefetch" href="/assets/js/16.382c9bcd.js"><link rel="prefetch" href="/assets/js/17.18e1a90e.js"><link rel="prefetch" href="/assets/js/18.f5d5c127.js"><link rel="prefetch" href="/assets/js/19.55621491.js"><link rel="prefetch" href="/assets/js/20.f4ab203f.js"><link rel="prefetch" href="/assets/js/21.b3f1dd79.js"><link rel="prefetch" href="/assets/js/22.a4769bbd.js"><link rel="prefetch" href="/assets/js/23.a3108ef1.js"><link rel="prefetch" href="/assets/js/24.455c5906.js"><link rel="prefetch" href="/assets/js/25.3b08ed65.js"><link rel="prefetch" href="/assets/js/26.98348e29.js"><link rel="prefetch" href="/assets/js/27.50ded5ec.js"><link rel="prefetch" href="/assets/js/28.b5ff8778.js"><link rel="prefetch" href="/assets/js/29.274f94db.js"><link rel="prefetch" href="/assets/js/30.c9db3a1b.js"><link rel="prefetch" href="/assets/js/31.603f2f81.js"><link rel="prefetch" href="/assets/js/32.b2840a37.js"><link rel="prefetch" href="/assets/js/33.fd1960f2.js"><link rel="prefetch" href="/assets/js/34.5734f5e1.js"><link rel="prefetch" href="/assets/js/35.537cc99c.js"><link rel="prefetch" href="/assets/js/36.9a7531ad.js"><link rel="prefetch" href="/assets/js/38.b148e348.js"><link rel="prefetch" href="/assets/js/39.b545f40f.js"><link rel="prefetch" href="/assets/js/40.fb5f0a0e.js"><link rel="prefetch" href="/assets/js/41.15aa988a.js"><link rel="prefetch" href="/assets/js/42.41575e65.js"><link rel="prefetch" href="/assets/js/43.94c84e7c.js"><link rel="prefetch" href="/assets/js/44.584661fb.js"><link rel="prefetch" href="/assets/js/5.61cadc21.js"><link rel="prefetch" href="/assets/js/6.51c4d940.js"><link rel="prefetch" href="/assets/js/7.b5260bec.js"><link rel="prefetch" href="/assets/js/8.61073b5c.js"><link rel="prefetch" href="/assets/js/9.4a046adc.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.2553b2f0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ad66585c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container"><div><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/avatar-300px.png" alt="Y Lei'S Blog" class="logo"> <span class="site-name">Y Lei'S Blog</span></a> <div class="links"><div class="color-picker"><a href="#" class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="theme-options"><!----> <div class="dark-theme-options toggle-option"><label for="dark-theme-toggle">Enable Dark Theme?</label> <input id="dark-theme-toggle" type="checkbox" checked="checked"></div></div></div></div> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><a href="/category/Front-End.html" class="nav-link"><i class="iconfont reco-blog"></i>
+  Blog
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Library
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/views/other/My favourite.html" class="nav-link"><i class="iconfont iconfontMy icon-tubiaoshezhixihuandeinhuo"></i>
+  My Favourite
+</a></li><li class="dropdown-item"><!----> <a href="/views/other/Interview question.html" class="nav-link"><i class="iconfont iconfontMy icon---copy"></i>
+  Interview Question
+</a></li><li class="dropdown-item"><!----> <a href="https://yu-lei.gitbook.io/notes/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-book"></i>
+  Notes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><a href="/Tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/views/other/guide.html" class="nav-link"><i class="iconfont reco-account"></i>
+  My CV
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/rainyulei" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.linkedin.com/in/yu-lei-42827a17b/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-linkedin"></i>
+  linkedin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.zhihu.com/people/ha-ha-ha-he-he-he-39/activities" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-zhihu"></i>
+  Zhihu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><a href="/category/Front-End.html" class="nav-link"><i class="iconfont reco-blog"></i>
+  Blog
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Library
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/views/other/My favourite.html" class="nav-link"><i class="iconfont iconfontMy icon-tubiaoshezhixihuandeinhuo"></i>
+  My Favourite
+</a></li><li class="dropdown-item"><!----> <a href="/views/other/Interview question.html" class="nav-link"><i class="iconfont iconfontMy icon---copy"></i>
+  Interview Question
+</a></li><li class="dropdown-item"><!----> <a href="https://yu-lei.gitbook.io/notes/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-book"></i>
+  Notes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><a href="/Tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/views/other/guide.html" class="nav-link"><i class="iconfont reco-account"></i>
+  My CV
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/rainyulei" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.linkedin.com/in/yu-lei-42827a17b/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-linkedin"></i>
+  linkedin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.zhihu.com/people/ha-ha-ha-he-he-he-39/activities" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-zhihu"></i>
+  Zhihu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>使用pm2管理nodejs应用</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/views/Server/2019/2019-03-16-pm2%E5%9C%A8centos%E4%B8%8A%E7%9A%84%E4%BD%BF%E7%94%A8.html#pm2-的安装" class="sidebar-link">pm2 的安装</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/Server/2019/2019-03-16-pm2%E5%9C%A8centos%E4%B8%8A%E7%9A%84%E4%BD%BF%E7%94%A8.html#pm2-的简单使用" class="sidebar-link">pm2 的简单使用</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/Server/2019/2019-03-16-pm2%E5%9C%A8centos%E4%B8%8A%E7%9A%84%E4%BD%BF%E7%94%A8.html#pm2-的配置文件" class="sidebar-link">pm2 的配置文件</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/Server/2019/2019-03-16-pm2%E5%9C%A8centos%E4%B8%8A%E7%9A%84%E4%BD%BF%E7%94%A8.html#使用脚本启动" class="sidebar-link">使用脚本启动</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/Server/2019/2019-03-16-pm2%E5%9C%A8centos%E4%B8%8A%E7%9A%84%E4%BD%BF%E7%94%A8.html#自动化部署" class="sidebar-link">自动化部署</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <div><main class="page reco-hide"> <div class="page-title"><h1>使用pm2管理nodejs应用</h1> <hr> <div data-v-b53d65a4><i class="iconfont reco-account" data-v-b53d65a4><span data-v-b53d65a4>Yu Lei</span></i> <i class="iconfont reco-date" data-v-b53d65a4><span data-v-b53d65a4>2019-3-16</span></i> <!----> <i class="iconfont reco-tag tags" data-v-b53d65a4><span class="tag-item" data-v-b53d65a4>
+      CentOS7
+    </span><span class="tag-item" data-v-b53d65a4>
+      Pm2
+    </span><span class="tag-item" data-v-b53d65a4>
+      Git
+    </span><span class="tag-item" data-v-b53d65a4>
+      自动化部署
+    </span></i></div></div> <div class="content__default"><h1 id="pm2-管理-nodejs-应用"><a href="#pm2-管理-nodejs-应用" aria-hidden="true" class="header-anchor">#</a> pm2 管理 nodejs 应用</h1> <pre><code>如果你是IT 大咖请略过这篇文章，这只是菜鸟在升级过程中的笔记。
+</code></pre> <h2 id="pm2-的安装"><a href="#pm2-的安装" aria-hidden="true" class="header-anchor">#</a> pm2 的安装</h2> <p>pm2 的安装很简单</p> <div class="language-shell line-numbers-mode"><pre class="language-text"><code>npm install pm2 -g  # 这里注意要安装到全局
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="pm2-的简单使用"><a href="#pm2-的简单使用" aria-hidden="true" class="header-anchor">#</a> pm2 的简单使用</h2> <div class="language-shell line-numbers-mode"><pre class="language-text"><code>pm2 start  入口 --name 应用名称 #即可启动应用  出现错误可以自动重新启动
+pm2 restart 入口 --name 应用名称 #重启进程 all为重启所有进程
+
+pm2 stop 应用名 或者进程号 # 停止
+
+pm2 delete 应用名称  或者进程号 #从pm2 的进程池中删除对应的进程
+pm2 list # 列出所有的在运行的列表
+
+pm2 logs # 调取pm2 的日志 包括错误以及系统输出日志
+
+# 生成一个基本的配置文件
+pm2 describe app #查看某个进程具体情况
+pm2 monit #查看进程的资源消耗情况
+pm2 ecosystem # 生成配置为文件
+pm2 startup centos #设置pm2开机自启（可选项：ubuntu, centos, redhat, gentoo, systemd, darwin, amazon）
+pm2 save # 保存pm2 的设置
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>其他命令请查看手册</p> <h2 id="pm2-的配置文件"><a href="#pm2-的配置文件" aria-hidden="true" class="header-anchor">#</a> pm2 的配置文件</h2> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  apps<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'应用启动后在pm2 中的名称'</span><span class="token punctuation">,</span>
+    script<span class="token punctuation">:</span> <span class="token string">'server.js'</span><span class="token punctuation">,</span> # 启动的入口
+    args<span class="token punctuation">:</span> <span class="token string">'one two'</span><span class="token punctuation">,</span>
+    instances<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token comment">// 启动的实例数量 如果开启集群模式就多填几个</span>
+    <span class="token comment">//  instances: 2, // 集群实例，可以只有一个，</span>
+    exec_mode<span class="token punctuation">:</span> <span class="token string">&quot;cluster&quot;</span><span class="token punctuation">,</span><span class="token comment">// 开启的模式</span>
+    autorestart<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span><span class="token comment">// 是否自动启动</span>
+    watch<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span><span class="token comment">// 是否监视代码变动 ，这里要注意如果开启日志也会被监视 有可能会造成无限重启</span>
+    min_uptime<span class="token punctuation">:</span> <span class="token string">&quot;60s&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 应用运行少于时间被认为是异常启动；</span>
+    max_restarts<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token comment">//重启次数</span>
+    error_file<span class="token punctuation">:</span> <span class="token string">&quot;./logs/app-err.log&quot;</span><span class="token punctuation">,</span><span class="token comment">//错误日志的存储位置</span>
+    out_file<span class="token punctuation">:</span> <span class="token string">&quot;./logs/app-out.log&quot;</span><span class="token punctuation">,</span><span class="token comment">//访问资源日志的存储位置</span>
+    cron_restart<span class="token punctuation">:</span> <span class="token string">'10 1 * * 6'</span><span class="token punctuation">,</span> <span class="token comment">//# 分时日月周 命令command  每周的周六  晚上1点10 分  重启</span>
+    wait_ready<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span><span class="token comment">//等待完成</span>
+    listen_timeout<span class="token punctuation">:</span> <span class="token number">3000</span><span class="token punctuation">,</span><span class="token comment">//等待开启时间</span>
+    restart_delay<span class="token punctuation">:</span> <span class="token number">6000</span><span class="token punctuation">,</span><span class="token comment">//延迟启动时间</span>
+    log_date_format<span class="token punctuation">:</span> <span class="token string">&quot;YYYY-MM-DD HH:mm Z&quot;</span><span class="token punctuation">,</span> <span class="token comment">// pm2 log添加日期</span>
+    max_memory_restart<span class="token punctuation">:</span> <span class="token string">'1G'</span><span class="token punctuation">,</span><span class="token comment">//最大的内存，防止内存溢出</span>
+    env<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token constant">NODE_ENV</span><span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token comment">//配置环境变量</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    env_production<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token constant">NODE_ENV</span><span class="token punctuation">:</span> <span class="token string">'production'</span><span class="token comment">//配置环境变量</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><h2 id="使用脚本启动"><a href="#使用脚本启动" aria-hidden="true" class="header-anchor">#</a> 使用脚本启动</h2> <p>上面是一个有用的基本配置文件，如果你是开发过程中建议开启 watch
+然后启动的时候</p> <div class="language-shell line-numbers-mode"><pre class="language-text"><code>pm2 start 配置文件的名称  --env # 最后这部分和配置文件中要开始的模式名称相同
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>如果再正式环境中不开开启 watch</p> <p>启动脚本</p> <div class="language-shell line-numbers-mode"><pre class="language-text"><code>pm2 start 配置文件的名称  --env_production
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="自动化部署"><a href="#自动化部署" aria-hidden="true" class="header-anchor">#</a> 自动化部署</h2> <ol><li><p>先要在服务器上生成 git 关于远端仓库的 ssh 密匙，同时</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code> ssh<span class="token operator">-</span>keygen <span class="token operator">-</span>t rsa <span class="token operator">-</span><span class="token constant">C</span> <span class="token string">&quot;xxx@xxx.com&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></li> <li><p>在~/.ssh 目录下有 id_rsa 和 id_rsa.pub 两个文件，其中 id_rsa.pub 文件里存放的即是公钥 key。</p></li> <li><p>登录到 GitHub，Add SSH key，把 id_rsa.pub 的内容上传。</p></li> <li><p>本地的应用代码关联此 Github 仓库，在应用文件夹的根目录执行：</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>git remote add origin https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span>需要关联的项目地址
+git push <span class="token operator">-</span>u origin master
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></li> <li><p>以上环节都是在服务器中进行的，接下来在本地项目开发中执行的</p> <ol><li><p>在项目的配置文件中加入自动话部署的脚本</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code># pm2 有服务器的自动化部署脚本
+deploy<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment">//git自动化部署脚本</span>
+    production<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token comment">//确定是生产环境</span>
+    user<span class="token punctuation">:</span> <span class="token string">'node'</span><span class="token punctuation">,</span><span class="token comment">//服务器的用户名</span>
+    host<span class="token punctuation">:</span> <span class="token string">'212.83.163.1'</span><span class="token punctuation">,</span> <span class="token comment">//服务器主机ip  公网</span>
+    port<span class="token punctuation">:</span><span class="token string">'22'</span><span class="token punctuation">,</span><span class="token comment">//服务器的端口</span>
+    ref<span class="token punctuation">:</span> <span class="token string">'origin/master'</span><span class="token punctuation">,</span> <span class="token comment">//分支</span>
+    <span class="token string">'ssh_options'</span><span class="token punctuation">:</span> <span class="token string">'StrictHostKeyChecking=no'</span><span class="token punctuation">,</span> <span class="token comment">// SSH 公钥检查</span>
+    repo<span class="token punctuation">:</span> <span class="token string">'git@github.com:repo.git'</span><span class="token punctuation">,</span> <span class="token comment">//代码源</span>
+    path<span class="token punctuation">:</span> <span class="token string">'/home/new-land/production'</span><span class="token punctuation">,</span> <span class="token comment">//下载到的目录</span>
+    <span class="token string">'pre-deploy'</span><span class="token punctuation">:</span> <span class="token string">'git fetch --all'</span> <span class="token comment">//部署前执行，</span>
+    <span class="token string">'post-deploy'</span><span class="token punctuation">:</span> <span class="token string">'npm install &amp;&amp; pm2 reload  ecosystem.config.js --env production'</span><span class="token comment">//部署后执行命令</span>
+        <span class="token comment">// env:</span>
+        <span class="token comment">//     NODE_ENV: development//执行后的环境</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div></li> <li><p>开通本地到远程服务器的无密码登录，在本地生成 sshkey 或者在远端生成 ssh key 在现在到本地</p></li> <li><p>在本地应用目录下，执行 pm2 deploy 命令
+<code>shell pm2 deploy ecosystem.json production setup</code></p></li> <li><p>如果提示错误 Host key verification failed. 则执行<code>ssh-keyscan -t rsa github.com &gt;&gt; ~/.ssh/known_hosts</code></p></li> <li><p>如果 <code>Warning: Permanently added the RSA host key for IP address '52.74.223.119' to the list of known host</code> 则先编辑 etc/hosts 文件 加入 github 的 dns <code>52.74.223.119 github.com</code></p></li> <li><p>如果 <code>the authenticity of host cant't be established</code> 错误则是没有 ssh 检查，用 vim 打开 <code>在/etc/ssh/ssh_config</code> 这个文件 并且后加入</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>StrictHostKeyChecking no
+UserKnownHostsFile <span class="token operator">/</span>dev<span class="token operator">/</span><span class="token keyword">null</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>重启 ssh <code>service ssh restart</code></p></li> <li><p>如果出现 <code>setup complete Success</code> 则成功</p></li> <li><p>实际部署 在本地 执行 git 正常提交命令</p> <div class="language-shell line-numbers-mode"><pre class="language-text"><code>git add .
+git commit -m &quot;update ecosystem&quot;
+git push
+pm2 deploy ecosystem.json production #即可完成部署
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div></li></ol></li></ol></div> <!----> <footer class="page-edit"><!----> <!----></footer> <!----> </main> <div class="valine-wrapper" data-v-5029e45b><div id="valine" data-v-5029e45b></div></div></div> <div class="back-to-ceiling" style="right:1rem;bottom:3rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;background-color:rgba(231, 234, 241,.5);display:none;" data-v-d0bfeaa4 data-v-d0bfeaa4><i class="iconfont reco-up" data-v-d0bfeaa4></i></div></div></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.565ad12a.js" defer></script><script src="/assets/js/4.ed939ccf.js" defer></script><script src="/assets/js/1.0b802b94.js" defer></script><script src="/assets/js/37.a3aece7e.js" defer></script>
+  </body>
+</html>
